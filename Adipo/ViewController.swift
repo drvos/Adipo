@@ -9,8 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-   @IBOutlet weak var tailleSlider: UISlider!
    @IBOutlet weak var tailleLabel: UILabel!
+   @IBOutlet weak var tailleSlider: UISlider!
+   @IBOutlet weak var tailleValueLabel: UILabel!
+   
+   @IBOutlet weak var hüftLabel: UILabel!
+   @IBOutlet weak var hüftSlider: UISlider!
+   @IBOutlet weak var hüftValueLabel: UILabel!
    
    // Klassen initialisieren
    var thq = THQ.init()
@@ -20,17 +25,21 @@ class ViewController: UIViewController {
       // Do any additional setup after loading the view.
       
       // Taillenumfang initialisieren
-      tailleSlider.value = 65
       tailleSlider.minimumValue = 40
       tailleSlider.maximumValue = 130
+      tailleSlider.value = 65
       tailleChanged(self.tailleSlider)
       
-      
+      // Hüftumfang initialisieren
+      hüftSlider.minimumValue = 50
+      hüftSlider.maximumValue = 150
+      hüftSlider.value = 75
+      hüftChanged(self.hüftSlider)
       
       let bmi = BMI.init(GewichtInKG: 100.4, GrößeInCM: 188)
       print(String(format: "BMI: %.1f (%@)", bmi.wert, bmi.kategorie))
       
-      thq.hüftumfang = 107
+      thq.hüftumfang = Double(hüftSlider.value)
       thq.taillenumfang = Double(tailleSlider.value)
       thq.geschlecht = "m"
    }
@@ -38,7 +47,13 @@ class ViewController: UIViewController {
 
    @IBAction func tailleChanged(_ sender: UISlider) {
       thq.taillenumfang = Double(tailleSlider.value)
-      tailleLabel.text = String(format: "%.0f cm", thq.taillenumfang)
+      tailleValueLabel.text = String(format: "%.0f cm", thq.taillenumfang)
+      print(String(format: "THQ: %.2f (%@)", thq.wert, thq.kategorie))
+   }
+   
+   @IBAction func hüftChanged(_ sender: UISlider) {
+      thq.hüftumfang = Double(hüftSlider.value)
+      hüftValueLabel.text = String(format: "%.0f cm", thq.hüftumfang)
       print(String(format: "THQ: %.2f (%@)", thq.wert, thq.kategorie))
    }
 }
