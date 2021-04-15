@@ -13,6 +13,8 @@
 		9C28551D26277E2000B3A2DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C28551B26277E2000B3A2DD /* Main.storyboard */; };
 		9C28551F26277E2100B3A2DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C28551E26277E2100B3A2DD /* Assets.xcassets */; };
 		9C28552226277E2100B3A2DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C28552026277E2100B3A2DD /* LaunchScreen.storyboard */; };
+		9C28552D26277F5F00B3A2DD /* BMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C28552C26277F5F00B3A2DD /* BMI.swift */; };
+		9C28553626278AF300B3A2DD /* THQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C28553526278AF300B3A2DD /* THQ.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		9C28551E26277E2100B3A2DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C28552126277E2100B3A2DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C28552326277E2100B3A2DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C28552C26277F5F00B3A2DD /* BMI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMI.swift; sourceTree = "<group>"; };
+		9C28553526278AF300B3A2DD /* THQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THQ.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		9C28551426277E2000B3A2DD /* Adipo */ = {
 			isa = PBXGroup;
 			children = (
+				9C28552C26277F5F00B3A2DD /* BMI.swift */,
+				9C28553526278AF300B3A2DD /* THQ.swift */,
 				9C28551526277E2000B3A2DD /* AppDelegate.swift */,
 				9C28551726277E2000B3A2DD /* SceneDelegate.swift */,
 				9C28551926277E2000B3A2DD /* ViewController.swift */,
@@ -77,6 +83,7 @@
 				9C28550E26277E2000B3A2DD /* Sources */,
 				9C28550F26277E2000B3A2DD /* Frameworks */,
 				9C28551026277E2000B3A2DD /* Resources */,
+				9C28552A26277E5400B3A2DD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,6 +139,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9C28552A26277E5400B3A2DD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9C28550E26277E2000B3A2DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +167,8 @@
 				9C28551A26277E2000B3A2DD /* ViewController.swift in Sources */,
 				9C28551626277E2000B3A2DD /* AppDelegate.swift in Sources */,
 				9C28551826277E2000B3A2DD /* SceneDelegate.swift in Sources */,
+				9C28553626278AF300B3A2DD /* THQ.swift in Sources */,
+				9C28552D26277F5F00B3A2DD /* BMI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,10 +322,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.volker-schering.Adipo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,10 +342,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "de.volker-schering.Adipo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
