@@ -12,9 +12,6 @@ import Foundation
 class THQ {
    
    var geschlecht: String {
-      willSet(newGeschlecht) {
-         self.geschlecht = String(newGeschlecht.prefix(1))
-      }
       didSet {
          print(String(format:"THQ.geschlecht has been set: %@", self.geschlecht))
       }
@@ -55,7 +52,7 @@ class THQ {
    
    internal func _kategorie(geschlecht: String) -> String {
       var kat = ""
-      switch geschlecht {
+      switch geschlecht.prefix(1) {
          case "m":
             if (self.wert < 0.9) {
                kat = "Normalgewicht"
