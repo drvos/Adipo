@@ -20,9 +20,9 @@ class BMI {
 
    // MARK: Initializer
    
-   internal init(kg: Double, cm: Double) {
-      self.gewicht = kg
-      self.größe = cm
+   internal init(GewichtInKG: Double, GrößeInCM: Int) {
+      self.gewicht = GewichtInKG
+      self.größe = Double(GrößeInCM)
    }
    
    // MARK: Internal Functions
