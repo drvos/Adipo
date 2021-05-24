@@ -16,14 +16,14 @@ class THQ {
          print(String(format:"THQ.geschlecht has been set: %@", self.geschlecht))
       }
    }
-   var hüftumfang: Double {
+   var hüftumfang: Int {
       didSet {
-         print(String(format:"THQ.hüftumfang has been set: %.2f", self.hüftumfang))
+         print(String(format:"THQ.hüftumfang has been set: %d", self.hüftumfang))
       }
    }
-   var taillenumfang: Double {
+   var taillenumfang: Int {
       didSet {
-         print(String(format:"THQ.taillenumfang has been set: %.2f", self.taillenumfang))
+         print(String(format:"THQ.taillenumfang has been set: %d", self.taillenumfang))
       }
    }
    
@@ -39,15 +39,15 @@ class THQ {
    }
    
    internal init(HüftumfanginCM: Int, TaillenumfanginCM: Int, Geschlecht: String) {
-      self.hüftumfang = Double(HüftumfanginCM)
-      self.taillenumfang = Double(TaillenumfanginCM)
+      self.hüftumfang = HüftumfanginCM
+      self.taillenumfang = TaillenumfanginCM
       self.geschlecht = Geschlecht
    }
    
    // MARK: Internal Functions
    
    internal func _thq() -> Double {
-      return (self.taillenumfang / Double(self.hüftumfang))
+      return (Double(self.taillenumfang) / Double(self.hüftumfang))
    }
    
    internal func _kategorie(geschlecht: String) -> String {

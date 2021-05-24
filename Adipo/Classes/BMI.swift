@@ -11,8 +11,16 @@ import Foundation
 
 class BMI {
    
-   let gewicht: Double
-   let größe: Double
+   var gewicht: Int {
+      didSet {
+         print(String(format:"BMI.gewicht has been set: %d", self.gewicht))
+      }
+   }
+   var größe: Int {
+      didSet {
+         print(String(format:"BMI.größe has been set: %d", self.größe))
+      }
+   }
    
    var wert: Double { return _bmi() }
    var kategorie: String { return _kategorie() }
@@ -20,15 +28,20 @@ class BMI {
 
    // MARK: Initializer
    
-   internal init(GewichtInKG: Double, GrößeInCM: Int) {
+   internal init() {
+      self.gewicht = 100
+      self.größe = 188
+   }
+   
+   internal init(GewichtInKG: Int, GrößeInCM: Int) {
       self.gewicht = GewichtInKG
-      self.größe = Double(GrößeInCM)
+      self.größe = GrößeInCM
    }
    
    // MARK: Internal Functions
    
    internal func _bmi() -> Double {
-      return (self.gewicht / (self.größe/100 * self.größe/100))
+      return (Double(self.gewicht) / (Double(self.größe)/100 * Double(self.größe)/100))
    }
    
    internal func _kategorie() -> String {
