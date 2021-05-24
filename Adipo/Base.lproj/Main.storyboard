@@ -20,10 +20,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FF3-Xn-s4t">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="408"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIb-mq-YYC">
-                                                <rect key="frame" x="57" y="146.5" width="300" height="115"/>
+                                                <rect key="frame" x="57" y="142.5" width="300" height="115"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJE-Bu-JTn">
                                                         <rect key="frame" x="10" y="10" width="35" height="24"/>
@@ -31,7 +31,7 @@
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="90f-Tp-Ukn"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <color key="textColor" systemColor="systemGray5Color"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28.4" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gph-a1-11M">
@@ -43,42 +43,58 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Adipositas, Grad III" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCz-Kq-iML">
-                                                        <rect key="frame" x="50.5" y="42.5" width="199.5" height="30"/>
-                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="25"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="kritisches Untergewicht" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCz-Kq-iML">
+                                                        <rect key="frame" x="65" y="44.5" width="225" height="26.5"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o5y-KT-ze0">
+                                                        <rect key="frame" x="63" y="82.5" width="227" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adipo_03" translatesAutoresizingMaskIntoConstraints="NO" id="PWL-m3-2dL">
+                                                        <rect key="frame" x="10" y="35" width="45" height="70"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="45" id="aPT-PE-c7H"/>
+                                                            <constraint firstAttribute="height" constant="70" id="thM-MY-qBU"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="yCz-Kq-iML" firstAttribute="centerX" secondItem="VIb-mq-YYC" secondAttribute="centerX" id="I7p-ue-W2D"/>
+                                                    <constraint firstAttribute="bottom" secondItem="PWL-m3-2dL" secondAttribute="bottom" constant="10" id="7Vn-7B-xB7"/>
+                                                    <constraint firstItem="PWL-m3-2dL" firstAttribute="leading" secondItem="VIb-mq-YYC" secondAttribute="leading" constant="10" id="KCH-2U-Tub"/>
+                                                    <constraint firstAttribute="trailing" secondItem="yCz-Kq-iML" secondAttribute="trailing" constant="10" id="Ndq-M4-cUR"/>
                                                     <constraint firstAttribute="height" constant="115" id="NpE-3F-8ja"/>
+                                                    <constraint firstItem="yCz-Kq-iML" firstAttribute="centerY" secondItem="VIb-mq-YYC" secondAttribute="centerY" id="TTU-ag-Sqy"/>
                                                     <constraint firstAttribute="width" constant="300" id="Wb5-E1-Mrv"/>
                                                     <constraint firstAttribute="trailing" secondItem="gph-a1-11M" secondAttribute="trailing" constant="10" id="Zlg-rN-rNG"/>
                                                     <constraint firstItem="yJE-Bu-JTn" firstAttribute="top" secondItem="VIb-mq-YYC" secondAttribute="top" constant="10" id="eL4-be-w98"/>
                                                     <constraint firstItem="gph-a1-11M" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yJE-Bu-JTn" secondAttribute="trailing" constant="8" symbolic="YES" id="eMM-0E-jyq"/>
                                                     <constraint firstItem="yJE-Bu-JTn" firstAttribute="leading" secondItem="VIb-mq-YYC" secondAttribute="leading" constant="10" id="n1x-a7-6kj"/>
                                                     <constraint firstItem="gph-a1-11M" firstAttribute="top" secondItem="VIb-mq-YYC" secondAttribute="top" constant="10" id="ndd-3C-umQ"/>
-                                                    <constraint firstItem="yCz-Kq-iML" firstAttribute="centerY" secondItem="VIb-mq-YYC" secondAttribute="centerY" id="xOf-Qp-Bzf"/>
+                                                    <constraint firstItem="yCz-Kq-iML" firstAttribute="leading" secondItem="PWL-m3-2dL" secondAttribute="trailing" constant="10" id="oDw-sk-6lF"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="VIb-mq-YYC" firstAttribute="centerX" secondItem="FF3-Xn-s4t" secondAttribute="centerX" id="U4F-ak-QPU"/>
-                                            <constraint firstItem="VIb-mq-YYC" firstAttribute="centerY" secondItem="FF3-Xn-s4t" secondAttribute="centerY" id="h2o-zx-zvm"/>
+                                            <constraint firstItem="VIb-mq-YYC" firstAttribute="centerY" secondItem="FF3-Xn-s4t" secondAttribute="centerY" id="nCo-ez-G8f"/>
                                         </constraints>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8D-HU-FTZ">
-                                        <rect key="frame" x="0.0" y="408" width="414" height="400"/>
+                                        <rect key="frame" x="0.0" y="400" width="414" height="408"/>
                                         <connections>
                                             <segue destination="krT-FI-2VT" kind="embed" id="rjI-8n-697"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="E8D-HU-FTZ" firstAttribute="top" secondItem="uf8-Ks-wLG" secondAttribute="top" constant="408" id="Xz5-zK-p97"/>
+                                    <constraint firstItem="E8D-HU-FTZ" firstAttribute="top" secondItem="uf8-Ks-wLG" secondAttribute="top" constant="400" id="Xz5-zK-p97"/>
                                     <constraint firstAttribute="bottom" secondItem="E8D-HU-FTZ" secondAttribute="bottom" id="exN-go-yFl"/>
                                     <constraint firstItem="FF3-Xn-s4t" firstAttribute="top" secondItem="uf8-Ks-wLG" secondAttribute="top" id="yhS-z3-znU"/>
                                 </constraints>
@@ -96,6 +112,8 @@
                     <navigationItem key="navigationItem" title="Adipo" id="Sxb-e6-K5r"/>
                     <connections>
                         <outlet property="bmiCategorieLabel" destination="yCz-Kq-iML" id="60E-ZM-kjy"/>
+                        <outlet property="bmiColorBar" destination="o5y-KT-ze0" id="JZj-G2-iZd"/>
+                        <outlet property="bmiImage" destination="PWL-m3-2dL" id="lMs-yS-9rW"/>
                         <outlet property="bmiValueLabel" destination="gph-a1-11M" id="Ark-6A-SCP"/>
                         <outlet property="bmiView" destination="VIb-mq-YYC" id="2b7-k2-JBA"/>
                         <outlet property="geschlechtSegmentControl" destination="2fV-lr-vQV" id="XbI-ig-gMV"/>
@@ -134,7 +152,7 @@
             <objects>
                 <tableViewController id="krT-FI-2VT" customClass="TableViewController" customModule="Adipo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eUt-SM-Jri">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="408"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -335,14 +353,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="adipo_03" width="754" height="1256"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

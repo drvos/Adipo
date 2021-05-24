@@ -18,6 +18,8 @@ class ViewController: UIViewController {
    @IBOutlet weak var bmiView: UIView!
    @IBOutlet weak var bmiCategorieLabel: UILabel!
    @IBOutlet weak var bmiValueLabel: UILabel!
+   @IBOutlet weak var bmiImage: UIImageView!
+   @IBOutlet weak var bmiColorBar: UIView!
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -26,14 +28,19 @@ class ViewController: UIViewController {
       tableViewController = self.children[0] as? TableViewController
       tableViewController?.delegate = self
       
+      bmiView.layer.cornerRadius = 10.0
+      bmiView.layer.masksToBounds = true
+      
       inputChanged()
    }
 
    func inputChanged() {
       print(String(format: "BMI: %.1f (%@)", bmi.wert, bmi.kategorie))
-      bmiView.backgroundColor = bmi.color
+      bmiColorBar.backgroundColor = bmi.color
       bmiValueLabel.text = String(format: "%.1f", bmi.wert)
       bmiCategorieLabel.text = bmi.kategorie
+      print(String(format: "Imagename: adipo_%02d", bmi.imageNumber))
+      bmiImage.image = UIImage(named: String(format: "adipo_%02d", bmi.imageNumber))
       
       print(String(format: "THQ: %.2f (%@)", thq.wert, thq.kategorie))
    }

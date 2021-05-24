@@ -24,6 +24,7 @@ class BMI {
    
    var wert: Double { return _bmi() }
    var kategorie: String { return _kategorie() }
+   var imageNumber: Int { return _imageNumber() }
    var color: UIColor { return _color() }
 
    // MARK: Initializer
@@ -44,6 +45,22 @@ class BMI {
       return (Double(self.gewicht) / (Double(self.größe)/100 * Double(self.größe)/100))
    }
    
+   internal func _imageNumber() -> Int {
+      var imgNumber: Int = 0
+      if (self.wert > 0.0 && self.wert <= 16.0) {
+         imgNumber = 1
+      } else if (self.wert > 16.0 && self.wert <= 20.0) {
+         imgNumber = 2
+      } else if (self.wert > 20.0 && self.wert <= 25.0) {
+         imgNumber = 3
+      } else if (self.wert > 25.0 && self.wert <= 30.0) {
+         imgNumber = 4
+      } else if (self.wert > 30.0) {
+         imgNumber = 5
+      }
+      return imgNumber
+   }
+
    internal func _kategorie() -> String {
       var kat: String = ""
       if (self.wert > 0.0 && self.wert <= 16.0) {
@@ -63,7 +80,7 @@ class BMI {
       }
       return kat
    }
-
+   
    internal func _color() -> UIColor {
       var color = UIColor.init()
       if (self.wert > 0.0 && self.wert <= 16.0) {
