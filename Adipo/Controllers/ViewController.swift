@@ -21,6 +21,12 @@ class ViewController: UIViewController {
    @IBOutlet weak var bmiImage: UIImageView!
    @IBOutlet weak var bmiColorBar: UIView!
    
+   @IBOutlet weak var whrView: UIView!
+   @IBOutlet weak var whrCategoryLabel: UILabel!
+   @IBOutlet weak var whrValueLabel: UILabel!
+   @IBOutlet weak var whrImage: UIImageView!
+   @IBOutlet weak var whrColorBar: UIView!
+   
    override func viewDidLoad() {
       super.viewDidLoad()
       // Do any additional setup after loading the view.
@@ -43,6 +49,10 @@ class ViewController: UIViewController {
       bmiImage.image = UIImage(named: String(format: "adipo_%02d", bmi.imageNumber))
       
       print(String(format: "WHR: %.2f (%@)", whr.value, whr.category))
+      whrColorBar.backgroundColor = whr.color
+      whrValueLabel.text = String(format: "%.1f", whr.value)
+      whrCategoryLabel.text = whr.category
+      whrImage.image = UIImage(named: whr.imageName)
    }
    
    // MARK: Interface Actions

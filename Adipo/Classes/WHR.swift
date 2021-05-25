@@ -18,8 +18,10 @@ internal class WHR { // waist-hip ratio
       let name: String
    }
    
-   private var _Categories: [String] = ["","","Normalgewicht","Übergewicht","Adipositas"]
-   private var _Colors: [UIColor] = [UIColor.red, UIColor.orange, UIColor.green, UIColor.orange, UIColor.red]
+   private var _Categories: [String] =
+      ["","","","Normalgewicht","Übergewicht","Adipositas"]
+   private var _Colors: [UIColor] =
+      [UIColor.clear, UIColor.red, UIColor.orange, UIColor.green, UIColor.orange, UIColor.red]
    
    var sex: String {
       didSet {
@@ -38,8 +40,9 @@ internal class WHR { // waist-hip ratio
    }
    
    var value: Double { return _whr() }
-   var category: String { return _Categories[self._idx] }
-   var color: UIColor { return _Colors[self._idx] }
+   var category: String { return _Categories[_generateIndex(sex: self.sex)] }
+   var color: UIColor { return _Colors[_generateIndex(sex: self.sex)] }
+   var imageName: String { return String(format: "adipo_%02d", _generateIndex(sex: self.sex))}
    
    // MARK: Initializer
    
@@ -47,7 +50,6 @@ internal class WHR { // waist-hip ratio
       self.hipSize = 50
       self.waistSize = 40
       self.sex = "weiblich"
-      self._idx = _generateIndex(sex: self.sex)
    }
    
    // MARK: Internal Functions
