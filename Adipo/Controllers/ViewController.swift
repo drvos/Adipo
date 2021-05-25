@@ -12,7 +12,7 @@ class ViewController: UIViewController {
    var tableViewController : TableViewController?
    
    // Klassen initialisieren
-   var thq = THQ.init()
+   var whr = WHR.init()
    var bmi = BMI.init()
    
    @IBOutlet weak var bmiView: UIView!
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
       print(String(format: "Imagename: adipo_%02d", bmi.imageNumber))
       bmiImage.image = UIImage(named: String(format: "adipo_%02d", bmi.imageNumber))
       
-      print(String(format: "THQ: %.2f (%@)", thq.wert, thq.kategorie))
+      print(String(format: "WHR: %.2f (%@)", whr.value, whr.category))
    }
    
    // MARK: Interface Actions
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
 extension ViewController : TableViewControllerDelegate {
  
    func geschlechtChanged(geschlecht: String) {
-      thq.geschlecht = geschlecht
+      whr.sex = geschlecht
       
       inputChanged()
    }
@@ -70,12 +70,12 @@ extension ViewController : TableViewControllerDelegate {
    }
 
    func tailleChanged(taillenumfang: Int) {
-      thq.taillenumfang = taillenumfang
+      whr.waistSize = taillenumfang
       inputChanged()
    }
    
    func hüftChanged(hüftumfang: Int) {
-      thq.hüftumfang = hüftumfang
+      whr.hipSize = hüftumfang
       inputChanged()
    }
 }
