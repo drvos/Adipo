@@ -41,12 +41,11 @@ class ViewController: UIViewController {
    }
 
    func inputChanged() {
-      print(String(format: "BMI: %.1f (%@)", bmi.wert, bmi.kategorie))
+      print(String(format: "BMI: %.1f (%@)", bmi.value, bmi.category))
       bmiColorBar.backgroundColor = bmi.color
-      bmiValueLabel.text = String(format: "%.1f", bmi.wert)
-      bmiCategorieLabel.text = bmi.kategorie
-      print(String(format: "Imagename: adipo_%02d", bmi.imageNumber))
-      bmiImage.image = UIImage(named: String(format: "adipo_%02d", bmi.imageNumber))
+      bmiValueLabel.text = String(format: "%.1f", bmi.value)
+      bmiCategorieLabel.text = bmi.category
+      bmiImage.image = UIImage(named: bmi.imageName)
       
       print(String(format: "WHR: %.2f (%@)", whr.value, whr.category))
       whrColorBar.backgroundColor = whr.color
@@ -70,12 +69,12 @@ extension ViewController : TableViewControllerDelegate {
    }
    
    func gewichtChanged(gewicht: Int) {
-      bmi.gewicht = gewicht
+      bmi.weight = gewicht
       inputChanged()
    }
    
    func größeChanged(größe: Int) {
-      bmi.größe = größe
+      bmi.size = größe
       inputChanged()
    }
 

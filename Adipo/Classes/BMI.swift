@@ -10,123 +10,56 @@ import UIKit
 import Foundation
 
 class BMI {
-   
-   var gewicht: Int {
-      didSet {
-         print(String(format:"BMI.gewicht has been set: %d", self.gewicht))
-      }
-   }
-   var größe: Int {
-      didSet {
-         print(String(format:"BMI.größe has been set: %d", self.größe))
-      }
-   }
-   
-   var wert: Double { return _bmi() }
-   var kategorie: String { return _kategorie() }
-   var imageNumber: Int { return _imageNumber() }
-   var color: UIColor { return _color() }
 
+   private var _Categories: [String] =
+      ["","kritisches Untergewicht","Untergewicht","Normalgewicht","Übergewicht","Adipositas"]
+   private var _Colors: [UIColor] =
+      [UIColor.clear, UIColor.red, UIColor.orange, UIColor.green, UIColor.orange, UIColor.red]
+   
+   var weight: Int {
+      didSet {
+         print(String(format:"BMI.weight has been set: %d", self.weight))
+      }
+   }
+   var size: Int {
+      didSet {
+         print(String(format:"BMI.size has been set: %d", self.size))
+      }
+   }
+   
+   var value: Double { return _bmi() }
+   var category: String { return _Categories[_generateIndex()] }
+   var color: UIColor { return _Colors[_generateIndex()] }
+   var imageName: String { return String(format: "adipo_%02d", _generateIndex())}
+   
+   
    // MARK: Initializer
    
    internal init() {
-      self.gewicht = 100
-      self.größe = 188
-   }
-   
-   internal init(GewichtInKG: Int, GrößeInCM: Int) {
-      self.gewicht = GewichtInKG
-      self.größe = GrößeInCM
+      self.weight = 100
+      self.size = 188
    }
    
    // MARK: Internal Functions
    
    internal func _bmi() -> Double {
-      return (Double(self.gewicht) / (Double(self.größe)/100 * Double(self.größe)/100))
+      return (Double(self.weight) / (Double(self.size)/100 * Double(self.size)/100))
    }
    
-   internal func _imageNumber() -> Int {
-      var imgNumber: Int = 0
-      if (self.wert > 0.0 && self.wert <= 16.0) {
-         imgNumber = 1
-      } else if (self.wert > 16.0 && self.wert <= 20.0) {
-         imgNumber = 2
-      } else if (self.wert > 20.0 && self.wert <= 25.0) {
-         imgNumber = 3
-      } else if (self.wert > 25.0 && self.wert <= 30.0) {
-         imgNumber = 4
-      } else if (self.wert > 30.0) {
-         imgNumber = 5
+   internal func _generateIndex() -> Int {
+      if (self.value > 0.0 && self.value <= 16.0) {
+         return 1
+      } else if (self.value > 16.0 && self.value <= 20.0) {
+         return 2
+      } else if (self.value > 20.0 && self.value <= 25.0) {
+         return 3
+      } else if (self.value > 25.0 && self.value <= 30.0) {
+         return 4
+      } else if (self.value > 30.0) {
+         return 5
       }
-      return imgNumber
+      return 0
    }
-
-   internal func _kategorie() -> String {
-      var kat: String = ""
-      if (self.wert > 0.0 && self.wert <= 16.0) {
-         kat =  "kritisches Untergewicht"
-      } else if (self.wert > 16.0 && self.wert <= 20.0) {
-         kat =  "Untergewicht"
-      } else if (self.wert > 20.0 && self.wert <= 25.0) {
-         kat =  "Normalgewicht"
-      } else if (self.wert > 25.0 && self.wert <= 30.0) {
-         kat =  "Übergewicht"
-      } else if (self.wert > 30.0 && self.wert <= 35.0) {
-         kat =  "Adipositas Grad I"
-      } else if (self.wert > 35.0 && self.wert <= 40.0) {
-         kat =  "Adipositas Grad II"
-      } else if (self.wert > 40.0) {
-         kat =  "Adipositas Grad III"
-      }
-      return kat
-   }
-   
-   internal func _color() -> UIColor {
-      var color = UIColor.init()
-      if (self.wert > 0.0 && self.wert <= 16.0) {
-         color = UIColor.red
-      } else if (self.wert > 16.0 && self.wert <= 20.0) {
-         color = UIColor.orange
-      } else if (self.wert > 20.0 && self.wert <= 25.0) {
-         color = UIColor.green
-      } else if (self.wert > 25.0 && self.wert <= 30.0) {
-         color = UIColor.orange
-      } else if (self.wert > 30.0 && self.wert <= 35.0) {
-         color = UIColor.red
-      } else if (self.wert > 35.0 && self.wert <= 40.0) {
-         color = UIColor.red
-      } else if (self.wert > 40.0) {
-         color = UIColor.red
-      }
-      return color
-   }
-   
-   
-   /*
-   double bmi = [bmiNumber doubleValue];
-   if (bmi > 0.0 && bmi <= 16.0) {
-       self.bmiCategory = @"kritisches Untergewicht";
-       self.bmiColor = [UIColor redColor];
-   } else if (bmi > 16.0 && bmi <= 20.0) {
-       self.bmiCategory = @"Untergewicht";
-       self.bmiColor = [UIColor orangeColor];
-   } else if (bmi > 20.0 && bmi <= 25.0) {
-       self.bmiCategory = @"Normalgewicht";
-       self.bmiColor = [UIColor greenColor];
-   } else if (bmi > 25.0 && bmi <= 30.0) {
-       self.bmiCategory = @"Übergewicht";
-       self.bmiColor = [UIColor orangeColor];
-   } else if (bmi > 30.0 && bmi <= 35.0) {
-       self.bmiCategory = @"Adipositas Grad I";
-       self.bmiColor = [UIColor redColor];
-   } else if (bmi > 35.0 && bmi <= 40.0) {
-       self.bmiCategory = @"Adipositas Grad II";
-       self.bmiColor = [UIColor redColor];
-   } else if (bmi > 40.0) {
-       self.bmiCategory = @"Adipositas Grad III";
-       self.bmiColor = [UIColor redColor];
-   }
-   */
    
 }
 

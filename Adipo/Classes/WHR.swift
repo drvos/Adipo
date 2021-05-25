@@ -11,8 +11,6 @@ import Foundation
 
 internal class WHR { // waist-hip ratio
    
-   private var _idx: Int = 0
-   
    struct Gender {
       let short: String
       let name: String
