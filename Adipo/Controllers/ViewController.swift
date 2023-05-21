@@ -29,13 +29,15 @@ class ViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      // Do any additional setup after loading the view.
-      
+
       tableViewController = self.children[0] as? TableViewController
       tableViewController?.delegate = self
       
       bmiView.layer.cornerRadius = 10.0
       bmiView.layer.masksToBounds = true
+      
+      whrView.layer.cornerRadius = 10.0
+      whrView.layer.masksToBounds = true
       
       inputChanged()
    }
@@ -64,7 +66,6 @@ extension ViewController : TableViewControllerDelegate {
  
    func geschlechtChanged(geschlecht: String) {
       whr.sex = geschlecht
-      
       inputChanged()
    }
    
