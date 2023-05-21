@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -65,9 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				9CDD77EA264DB6AF000B1802 /* Classes */,
+				9CDD77E8264DB6A5000B1802 /* Controllers */,
 				9C28551526277E2000B3A2DD /* AppDelegate.swift */,
 				9C28551726277E2000B3A2DD /* SceneDelegate.swift */,
-				9CDD77E8264DB6A5000B1802 /* Controllers */,
 				9C28551E26277E2100B3A2DD /* Assets.xcassets */,
 				9C28552026277E2100B3A2DD /* LaunchScreen.storyboard */,
 				9C28551B26277E2000B3A2DD /* Main.storyboard */,
@@ -105,7 +105,6 @@
 				9C28550E26277E2000B3A2DD /* Sources */,
 				9C28550F26277E2000B3A2DD /* Frameworks */,
 				9C28551026277E2000B3A2DD /* Resources */,
-				9C28552A26277E5400B3A2DD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -122,8 +121,9 @@
 		9C28550A26277E2000B3A2DD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					9C28551126277E2000B3A2DD = {
 						CreatedOnToolsVersion = 12.4;
@@ -160,26 +160,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		9C28552A26277E5400B3A2DD /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9C28550E26277E2000B3A2DD /* Sources */ = {
@@ -340,6 +320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 244ZF284NG;
 				INFOPLIST_FILE = Adipo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -360,6 +341,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 244ZF284NG;
 				INFOPLIST_FILE = Adipo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
