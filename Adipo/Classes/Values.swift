@@ -7,62 +7,61 @@
 
 import Foundation
 
-class Einstellungen {
-      
+let values = Values.shared
+
+class Values {
+   
    struct myDefaults {
-      // Geschlecht m oder w
-      let geschlecht: String = "w"
-      // Gewicht
-      let gewicht: Int = 80
-      // Größe
-      let größe: Int = 180
-      // Taillenumfng
-      let taillenumfang: Int = 80
-      // Hüftumfang
-      let hüftumfang: Int = 80
+      let sex: Sex = .female
+      let weight: Int = 80
+      let size: Int = 180
+      let waist: Int = 80
+      let hip: Int = 80
    }
    let md = myDefaults()
    
-   var geschlecht: String {
+   var sex: Sex {
       didSet {
-         print(String(format: "Geschlecht gesetzt: %@", geschlecht))
+         logger.trace("Values: Sex is set to \(self.sex.hashValue)")
 //         UserDefaults.standard.set(self.geschlecht, forKey: "geschlecht")
       }
    }
-   var gewicht: Int {
+   var weight: Int {
       didSet {
-         print(String(format: "Gewicht gesetzt: %d", gewicht))
+         logger.trace("Values: Weight is set to \(self.weight)")
 //         UserDefaults.standard.set(self.gewicht, forKey: "gewicht")
       }
    }
-   var größe: Int {
+   var size: Int {
       didSet {
-         print(String(format: "Größe gesetzt: %d", größe))
+         logger.trace("Values: Size is set to \(self.size)")
 //         UserDefaults.standard.set(self.größe, forKey: "größe")
       }
    }
-   var taillenumfang: Int {
+   var waist: Int {
       didSet {
-         print(String(format: "Taillenumfang gesetzt: %d", taillenumfang))
+         logger.trace("Value: Waist is set to \(self.waist)")
 //         UserDefaults.standard.set(self.taillenumfang, forKey: "taillenumfang")
       }
    }
-   var hüftumfang: Int {
+   var hip: Int {
       didSet {
-         print(String(format: "Hüftumfang gesetzt: %d", hüftumfang))
+         logger.trace("Value: Hip is set to \(self.hip)")
 //         UserDefaults.standard.set(self.hüftumfang, forKey: "hüftumfang")
       }
    }
 
    init() {
-      self.geschlecht = md.geschlecht
-      self.gewicht = md.gewicht
-      self.größe = md.größe
-      self.taillenumfang = md.taillenumfang
-      self.hüftumfang = md.hüftumfang
+      self.sex = md.sex
+      self.weight = md.weight
+      self.size = md.size
+      self.waist = md.waist
+      self.hip = md.hip
       
 //      self.loadUserDefaults()
    }
+   
+   static let shared: Values = { return Values() }()
    
 //   internal func loadUserDefaults() {
 //      print(String("Load User Defaults"))
@@ -92,3 +91,4 @@ class Einstellungen {
 //       return UserDefaults.standard.object(forKey: key) != nil
 //   }
 }
+
