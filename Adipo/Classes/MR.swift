@@ -44,9 +44,19 @@ class MR {
    var metabolicRate: Int {
       switch self.sex {
          case .male:
-            return Int( 66.47 + (13.7 * self.weight) + (5.0 * self.size) - (6.8 * self.age) )
+            let a: Double = 66.47
+            let b: Double = 13.7 * self.weight
+            let c: Double = 5.0 * Double(self.size)
+            let d: Double = 6.8 * Double(self.age)
+            return Int(a + b + c - d)
+            //return Int( 66.47 + (13.7 * self.weight) + (5.0 * self.size) - (6.8 * self.age) )
          case .female:
-            return Int( 655.1 + (09.6 * self.weight) + (1.8 * self.size) - (4.7 * self.age) )
+            let a: Double = 655.1
+            let b: Double = 9.6 * self.weight
+            let c: Double = 1.8 * Double(self.size)
+            let d: Double = 4.7 * Double(self.age)
+            return Int(a + b + c - d)
+            //return Int( 655.1 + (09.6 * self.weight) + (1.8 * self.size) - (4.7 * self.age) )
       }
    }
    
