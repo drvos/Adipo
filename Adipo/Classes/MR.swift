@@ -60,6 +60,9 @@ class MR {
       }
    }
    
+   public func text() -> String {
+      return String(format: "Dein berechneter täglicher Grundumsatz ist %d %@", self.metabolicRate, self.unit)
+   }
 }
 
 /*
