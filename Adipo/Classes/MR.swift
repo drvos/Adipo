@@ -24,35 +24,35 @@ class MR {
          logger.trace("MR: Size set to \(self.size)")
       }
    }
-   var weight: Double {
+   var weight: Int {
       didSet {
          logger.trace("MR: Weight set to \(self.weight)")
       }
    }
    
-   let unit: String
+   private let _unit: String
    
-   init(sex: Sex, age: Int, size: Int, weight: Double) {
-      self.sex = sex
-      self.age = age
-      self.size = size
-      self.weight = weight
+   init() {
+      self.sex = .female
+      self.age = 50
+      self.size = 170
+      self.weight = 100
       
-      self.unit = "kcal/24h"
+      self._unit = "kcal/24h"
    }
    
    var metabolicRate: Int {
       switch self.sex {
          case .male:
             let a: Double = 66.47
-            let b: Double = 13.7 * self.weight
+            let b: Double = 13.7 * Double(self.weight)
             let c: Double = 5.0 * Double(self.size)
             let d: Double = 6.8 * Double(self.age)
             return Int(a + b + c - d)
             //return Int( 66.47 + (13.7 * self.weight) + (5.0 * self.size) - (6.8 * self.age) )
          case .female:
             let a: Double = 655.1
-            let b: Double = 9.6 * self.weight
+            let b: Double = 9.6 * Double(self.weight)
             let c: Double = 1.8 * Double(self.size)
             let d: Double = 4.7 * Double(self.age)
             return Int(a + b + c - d)
@@ -61,7 +61,7 @@ class MR {
    }
    
    public func text() -> String {
-      return String(format: "Dein berechneter täglicher Grundumsatz ist %d %@", self.metabolicRate, self.unit)
+      return String(format: "Dein berechneter täglicher Grundumsatz ist %d %@", self.metabolicRate, self._unit)
    }
 }
 
