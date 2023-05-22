@@ -7,13 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-   var tableViewController : TableViewController?
+class ViewController: UIViewController, Observer {
    
-   // Klassen initialisieren
-   var whr = WHR.init()
-   var bmi = BMI.init()
+   let values = Values.shared
+   
+   let mr = MR.init()
+   let whr = WHR.init()
+   let bmi = BMI.init()
+   
+   @IBOutlet weak var mrLabel: UILabel!
    
    @IBOutlet weak var bmiView: UIView!
    @IBOutlet weak var bmiCategorieLabel: UILabel!
@@ -29,9 +31,7 @@ class ViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-
-      tableViewController = self.children[0] as? TableViewController
-      tableViewController?.delegate = self
+      values.attachObserver(observer: self)
       
       bmiView.layer.cornerRadius = 10.0
       bmiView.layer.masksToBounds = true
@@ -39,10 +39,30 @@ class ViewController: UIViewController {
       whrView.layer.cornerRadius = 10.0
       whrView.layer.masksToBounds = true
       
-      inputChanged()
+      self.changedValues()
+      self.updateViews()
    }
-
-   func inputChanged() {
+   
+   func changedValues() {
+      logger.debug("Object Values has changed")
+      mr.age = values.age
+      mr.sex = values.sex
+      mr.size = values.size
+      mr.weight = values.weight
+      
+      bmi.size = values.size
+      bmi.weight = Int(values.weight)
+      
+      //      whr.sex = values.sex
+      whr.hipSize = values.hip
+      whr.waistSize = values.waist
+      
+      self.updateViews()
+   }
+      
+   func updateViews() {
+      mrLabel.text = mr.text()
+      
       print(String(format: "BMI: %.1f (%@)", bmi.value, bmi.category))
       bmiColorBar.backgroundColor = bmi.color
       bmiValueLabel.text = String(format: "%.1f", bmi.value)
@@ -62,30 +82,3 @@ class ViewController: UIViewController {
    //      })
 }
 
-extension ViewController : TableViewControllerDelegate {
- 
-   func geschlechtChanged(geschlecht: String) {
-      whr.sex = geschlecht
-      inputChanged()
-   }
-   
-   func gewichtChanged(gewicht: Int) {
-      bmi.weight = gewicht
-      inputChanged()
-   }
-   
-   func größeChanged(größe: Int) {
-      bmi.size = größe
-      inputChanged()
-   }
-
-   func tailleChanged(taillenumfang: Int) {
-      whr.waistSize = taillenumfang
-      inputChanged()
-   }
-   
-   func hüftChanged(hüftumfang: Int) {
-      whr.hipSize = hüftumfang
-      inputChanged()
-   }
-}

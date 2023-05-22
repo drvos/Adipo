@@ -5,11 +5,16 @@
 //  Created by Volker Schering on 20.04.21.
 //
 
+import UIKit
 import Foundation
 
-let values = Values.shared
+protocol Observer {
+   func changedValues()
+}
 
 class Values {
+   
+   private var observers: [Observer] = []
    
    struct myDefaults {
       let age: Int = 50
@@ -24,36 +29,42 @@ class Values {
    var age: Int {
       didSet {
          logger.trace("Values: Age is set to \(self.age)")
+         notifyObservers()
       }
    }
    var sex: Sex {
       didSet {
-         logger.trace("Values: Sex is set to \(self.sex.hashValue)")
+         logger.trace("Values: Sex is set to \(self.sex.rawValue)")
 //         UserDefaults.standard.set(self.geschlecht, forKey: "geschlecht")
+         notifyObservers()
       }
    }
    var weight: Int {
       didSet {
          logger.trace("Values: Weight is set to \(self.weight)")
 //         UserDefaults.standard.set(self.gewicht, forKey: "gewicht")
+         notifyObservers()
       }
    }
    var size: Int {
       didSet {
          logger.trace("Values: Size is set to \(self.size)")
 //         UserDefaults.standard.set(self.größe, forKey: "größe")
+         notifyObservers()
       }
    }
    var waist: Int {
       didSet {
          logger.trace("Value: Waist is set to \(self.waist)")
 //         UserDefaults.standard.set(self.taillenumfang, forKey: "taillenumfang")
+         notifyObservers()
       }
    }
    var hip: Int {
       didSet {
          logger.trace("Value: Hip is set to \(self.hip)")
 //         UserDefaults.standard.set(self.hüftumfang, forKey: "hüftumfang")
+         notifyObservers()
       }
    }
 
@@ -69,6 +80,16 @@ class Values {
    }
    
    static let shared: Values = { return Values() }()
+   
+   func attachObserver(observer: Observer) {
+      observers.append(observer)
+   }
+   
+   private func notifyObservers() {
+      for observer in observers {
+         observer.changedValues()
+      }
+   }
    
 //   internal func loadUserDefaults() {
 //      print(String("Load User Defaults"))
