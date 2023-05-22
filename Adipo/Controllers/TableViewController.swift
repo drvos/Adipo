@@ -72,19 +72,25 @@ class TableViewController: UITableViewController {
 
    // MARK: Interface Actions
    
-   @IBAction func geschlechtChanged(_ sender: UISegmentedControl) {
+   @IBAction func ageChanged(_ sender: UISlider) {
+      values.age = Int(ageSlider.value.rounded())
+      ageValueLabel.text = String(format: "%d Jahre", values.age)
+   }
+   
+   @IBAction func sexChanged(_ sender: UISegmentedControl) {
 //      values.sex.rawValue = sender.selectedSegmentIndex
    }
    
-   @IBAction func gewichtChanged(_ sender: UISlider) {
+   @IBAction func weightChanged(_ sender: UISlider) {
       values.weight = Int(weightSlider.value.rounded())
+      weightValueLabel.text = String(format: "%d kg", values.weight)
 //      let g = Int(weightSlider.value.rounded())
 //      weightValueLabel.text = String(format: "%d kg", g)
 //      e.gewicht = g
 //      delegate?.gewichtChanged(gewicht: g)
    }
    
-   @IBAction func größeChanged(_ sender: UISlider) {
+   @IBAction func sizeChanged(_ sender: UISlider) {
       values.size = Int(sizeSlider.value.rounded())
       sizeValueLabel.text = String(format: "%d cm", values.size)
 //      let g = Int(sizeSlider.value.rounded())
@@ -94,7 +100,7 @@ class TableViewController: UITableViewController {
 //      delegate?.größeChanged(größe: g)
    }
    
-   @IBAction func tailleChanged(_ sender: UISlider) {
+   @IBAction func waistChanged(_ sender: UISlider) {
       values.waist = Int(waistSlider.value.rounded())
       waistValueLabel.text = String(format: "%d cm", values.waist)
 //      let t = Int(waistSlider.value.rounded())
@@ -103,7 +109,7 @@ class TableViewController: UITableViewController {
 //      delegate?.tailleChanged(taillenumfang: t)
    }
    
-   @IBAction func hüftChanged(_ sender: UISlider) {
+   @IBAction func hipChanged(_ sender: UISlider) {
       values.hip = Int(hipSlider.value.rounded())
       hipValueLabel.text = String(format: "%d cm", values.hip)
 //      let h = Int(hipSlider.value.rounded())
