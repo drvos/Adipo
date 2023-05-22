@@ -37,6 +37,7 @@
 		9CE17DE82A1AB569001FE2B6 /* MR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MR.swift; sourceTree = "<group>"; };
 		9CE17DEA2A1AB9DD001FE2B6 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
 		9CE17DEC2A1ABA79001FE2B6 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		9CE17DF02A1C0AD4001FE2B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9CE359CB2628C1420027622B /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +55,7 @@
 		9C28550926277E2000B3A2DD = {
 			isa = PBXGroup;
 			children = (
+				9CE17DF02A1C0AD4001FE2B6 /* README.md */,
 				9C28551426277E2000B3A2DD /* Adipo */,
 				9C28551326277E2000B3A2DD /* Products */,
 			);
