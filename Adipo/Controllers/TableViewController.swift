@@ -7,27 +7,34 @@
 
 import UIKit
 
+protocol TableViewControllerDelegate {
+   func geschlechtChanged(geschlecht: String)
+   func gewichtChanged(gewicht: Int)
+   func größeChanged(größe: Int)
+   func tailleChanged(taillenumfang: Int)
+   func hüftChanged(hüftumfang: Int)
+}
+
 class TableViewController: UITableViewController {
 
    var delegate : TableViewControllerDelegate?
    
-   @IBOutlet weak var geschlechtSegmentControl: UISegmentedControl!
+   @IBOutlet weak var ageSlider: UISlider!
+   @IBOutlet weak var ageValueLabel: UILabel!
    
-   @IBOutlet weak var gewichtLabel: UILabel!
-   @IBOutlet weak var gewichtSlider: UISlider!
-   @IBOutlet weak var gewichtValueLabel: UILabel!
+   @IBOutlet weak var sexSegmentControl: UISegmentedControl!
    
-   @IBOutlet weak var größeLabel: UILabel!
-   @IBOutlet weak var größeSlider: UISlider!
-   @IBOutlet weak var größeValueLabel: UILabel!
+   @IBOutlet weak var weightSlider: UISlider!
+   @IBOutlet weak var weightValueLabel: UILabel!
    
-   @IBOutlet weak var tailleLabel: UILabel!
-   @IBOutlet weak var tailleSlider: UISlider!
-   @IBOutlet weak var tailleValueLabel: UILabel!
+   @IBOutlet weak var sizeSlider: UISlider!
+   @IBOutlet weak var sizeValueLabel: UILabel!
    
-   @IBOutlet weak var hüftLabel: UILabel!
-   @IBOutlet weak var hüftSlider: UISlider!
-   @IBOutlet weak var hüftValueLabel: UILabel!
+   @IBOutlet weak var waistSlider: UISlider!
+   @IBOutlet weak var waistValueLabel: UILabel!
+   
+   @IBOutlet weak var hipSlider: UISlider!
+   @IBOutlet weak var hipValueLabel: UILabel!
    
    // Klasse für Einstellungen
    let e = Einstellungen.init()
@@ -38,37 +45,37 @@ class TableViewController: UITableViewController {
       // Geschlecht initialisieren
       switch e.geschlecht {
          case "w":
-            geschlechtSegmentControl.selectedSegmentIndex = 0 // weiblich
+            sexSegmentControl.selectedSegmentIndex = 0 // weiblich
          case "m":
-            geschlechtSegmentControl.selectedSegmentIndex = 1 // männlich
+            sexSegmentControl.selectedSegmentIndex = 1 // männlich
          default:
-            geschlechtSegmentControl.selectedSegmentIndex = 0 // weiblich
+            sexSegmentControl.selectedSegmentIndex = 0
       }
-      geschlechtChanged(geschlechtSegmentControl)
+      geschlechtChanged(sexSegmentControl)
       
       // Gewicht initialisieren
-      gewichtSlider.minimumValue = 40
-      gewichtSlider.maximumValue = 150
-      gewichtSlider.value = Float(e.gewicht)
-      gewichtChanged(gewichtSlider)
+      weightSlider.minimumValue = 40
+      weightSlider.maximumValue = 150
+      weightSlider.value = Float(e.gewicht)
+      gewichtChanged(weightSlider)
       
       // Größe initialisieren
-      größeSlider.minimumValue = 50
-      größeSlider.maximumValue = 220
-      größeSlider.value = Float(e.größe)
-      größeChanged(größeSlider)
+      sizeSlider.minimumValue = 50
+      sizeSlider.maximumValue = 220
+      sizeSlider.value = Float(e.größe)
+      größeChanged(sizeSlider)
       
       // Taillenumfang initialisieren
-      tailleSlider.minimumValue = 50
-      tailleSlider.maximumValue = 150
-      tailleSlider.value = Float(e.taillenumfang)
-      tailleChanged(tailleSlider)
+      waistSlider.minimumValue = 50
+      waistSlider.maximumValue = 150
+      waistSlider.value = Float(e.taillenumfang)
+      tailleChanged(waistSlider)
       
       // Hüftumfang initialisieren
-      hüftSlider.minimumValue = 50
-      hüftSlider.maximumValue = 150
-      hüftSlider.value = Float(e.hüftumfang)
-      hüftChanged(hüftSlider)
+      hipSlider.minimumValue = 50
+      hipSlider.maximumValue = 150
+      hipSlider.value = Float(e.hüftumfang)
+      hüftChanged(hipSlider)
    }
 
    // MARK: - Table view data source
@@ -103,39 +110,31 @@ class TableViewController: UITableViewController {
    }
    
    @IBAction func gewichtChanged(_ sender: UISlider) {
-      let g = Int(gewichtSlider.value.rounded())
-      gewichtValueLabel.text = String(format: "%d kg", g)
+      let g = Int(weightSlider.value.rounded())
+      weightValueLabel.text = String(format: "%d kg", g)
       e.gewicht = g
       delegate?.gewichtChanged(gewicht: g)
    }
    
    @IBAction func größeChanged(_ sender: UISlider) {
-      let g = Int(größeSlider.value.rounded())
-      print(String(format: "%.1f rounded to %d", größeSlider.value, g))
-      größeValueLabel.text = String(format: "%d cm", g)
+      let g = Int(sizeSlider.value.rounded())
+      print(String(format: "%.1f rounded to %d", sizeSlider.value, g))
+      sizeValueLabel.text = String(format: "%d cm", g)
       e.größe = g
       delegate?.größeChanged(größe: g)
    }
    
    @IBAction func tailleChanged(_ sender: UISlider) {
-      let t = Int(tailleSlider.value.rounded())
-      tailleValueLabel.text = String(format: "%d cm", t)
+      let t = Int(waistSlider.value.rounded())
+      waistValueLabel.text = String(format: "%d cm", t)
       e.taillenumfang = t
       delegate?.tailleChanged(taillenumfang: t)
    }
    
    @IBAction func hüftChanged(_ sender: UISlider) {
-      let h = Int(hüftSlider.value.rounded())
-      hüftValueLabel.text = String(format: "%d cm", h)
+      let h = Int(hipSlider.value.rounded())
+      hipValueLabel.text = String(format: "%d cm", h)
       e.hüftumfang = h
       delegate?.hüftChanged(hüftumfang: h)
    }
-}
-
-protocol TableViewControllerDelegate {
-   func geschlechtChanged(geschlecht: String)
-   func gewichtChanged(gewicht: Int)
-   func größeChanged(größe: Int)
-   func tailleChanged(taillenumfang: Int)
-   func hüftChanged(hüftumfang: Int)
 }

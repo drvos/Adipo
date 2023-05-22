@@ -176,8 +176,6 @@
                         <outlet property="bmiImage" destination="PWL-m3-2dL" id="lMs-yS-9rW"/>
                         <outlet property="bmiValueLabel" destination="gph-a1-11M" id="Ark-6A-SCP"/>
                         <outlet property="bmiView" destination="VIb-mq-YYC" id="2b7-k2-JBA"/>
-                        <outlet property="geschlechtSegmentControl" destination="2fV-lr-vQV" id="XbI-ig-gMV"/>
-                        <outlet property="tailleSlider" destination="Pf2-3M-qgm" id="QSC-KF-eyM"/>
                         <outlet property="whrCategoryLabel" destination="wHM-Lb-m2Q" id="XT4-4S-3G7"/>
                         <outlet property="whrColorBar" destination="PtW-su-YLO" id="JbA-CX-w2V"/>
                         <outlet property="whrImage" destination="YdT-PD-0a9" id="NAb-5d-qVg"/>
@@ -273,10 +271,6 @@
                                                         <segment title="weiblich"/>
                                                         <segment title="männlich"/>
                                                     </segments>
-                                                    <connections>
-                                                        <action selector="geschlechtChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="U9X-aD-CFK"/>
-                                                        <action selector="geschlechtChanged:" destination="krT-FI-2VT" eventType="valueChanged" id="n1X-vE-0WB"/>
-                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -314,9 +308,6 @@
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5yU-SS-6vQ">
                                                     <rect key="frame" x="112" y="6" width="284" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="gewichtChanged:" destination="krT-FI-2VT" eventType="valueChanged" id="wEg-ko-1us"/>
-                                                    </connections>
                                                 </slider>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -333,14 +324,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Größe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MB6-3d-nfR">
-                                                    <rect key="frame" x="8" y="9" width="47.5" height="20.5"/>
+                                                    <rect key="frame" x="20" y="9" width="47.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="170 cm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8eh-pR-kUP">
-                                                    <rect key="frame" x="8" y="31.5" width="40.5" height="14.5"/>
+                                                    <rect key="frame" x="20" y="31.5" width="40.5" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -349,10 +340,6 @@
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="z9j-Tv-jGa">
                                                     <rect key="frame" x="112" y="6" width="284" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="größeChanged:" destination="krT-FI-2VT" eventType="valueChanged" id="CwO-ck-jo2"/>
-                                                        <action selector="größeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="xTw-Fe-IOO"/>
-                                                    </connections>
                                                 </slider>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -369,14 +356,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" text="Taille" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6T9-oP-hqa">
-                                                    <rect key="frame" x="8" y="5" width="38.5" height="20.5"/>
+                                                    <rect key="frame" x="20" y="5" width="38.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" text="140 cm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zjv-Kt-pfZ">
-                                                    <rect key="frame" x="8" y="25.5" width="41.5" height="14.5"/>
+                                                    <rect key="frame" x="20" y="25.5" width="41.5" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -385,10 +372,6 @@
                                                 <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Pf2-3M-qgm">
                                                     <rect key="frame" x="112" y="6" width="284" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="tailleChanged:" destination="krT-FI-2VT" eventType="valueChanged" id="PKA-MV-xtP"/>
-                                                        <action selector="tailleChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="QKS-58-f8I"/>
-                                                    </connections>
                                                 </slider>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -401,14 +384,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" text="Hüfte" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZdE-cb-Iwy">
-                                                    <rect key="frame" x="8" y="5" width="43" height="20.5"/>
+                                                    <rect key="frame" x="20" y="5" width="43" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" text="140 cm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IvK-5y-Yp8">
-                                                    <rect key="frame" x="8" y="25.5" width="41.5" height="14.5"/>
+                                                    <rect key="frame" x="20" y="25.5" width="41.5" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -417,10 +400,6 @@
                                                 <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fhs-yj-w5d">
                                                     <rect key="frame" x="112" y="6" width="284" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="hüftChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="alV-Ci-XEy"/>
-                                                        <action selector="hüftChanged:" destination="krT-FI-2VT" eventType="valueChanged" id="bow-lc-48K"/>
-                                                    </connections>
                                                 </slider>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -435,13 +414,17 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Ugy-yA-GcW"/>
                     <connections>
-                        <outlet property="geschlechtSegmentControl" destination="2fV-lr-vQV" id="2N4-sX-OBi"/>
-                        <outlet property="gewichtLabel" destination="diX-vI-dCs" id="bg9-ew-nOS"/>
-                        <outlet property="gewichtSlider" destination="5yU-SS-6vQ" id="UpL-2v-G0N"/>
-                        <outlet property="gewichtValueLabel" destination="b3W-PA-aNb" id="jNj-0f-eNG"/>
-                        <outlet property="tailleLabel" destination="6T9-oP-hqa" id="L4z-yj-Nk6"/>
-                        <outlet property="tailleSlider" destination="Pf2-3M-qgm" id="F0H-XT-YBV"/>
-                        <outlet property="tailleValueLabel" destination="zjv-Kt-pfZ" id="SK8-Sn-qof"/>
+                        <outlet property="ageSlider" destination="q9h-YX-wDo" id="goK-NE-lws"/>
+                        <outlet property="ageValueLabel" destination="VJl-JW-iEm" id="LCp-2g-Go6"/>
+                        <outlet property="hipSlider" destination="fhs-yj-w5d" id="ypH-ce-Enc"/>
+                        <outlet property="hipValueLabel" destination="IvK-5y-Yp8" id="ed7-ek-gtD"/>
+                        <outlet property="sexSegmentControl" destination="2fV-lr-vQV" id="dwH-Qt-QNF"/>
+                        <outlet property="sizeSlider" destination="z9j-Tv-jGa" id="3ZG-yt-Tfl"/>
+                        <outlet property="sizeValueLabel" destination="8eh-pR-kUP" id="NkL-Ya-T6X"/>
+                        <outlet property="waistSlider" destination="Pf2-3M-qgm" id="T0B-Go-gCT"/>
+                        <outlet property="waistValueLabel" destination="zjv-Kt-pfZ" id="Pq9-Mc-Ydk"/>
+                        <outlet property="weightSlider" destination="5yU-SS-6vQ" id="7nm-aL-aBh"/>
+                        <outlet property="weightValueLabel" destination="b3W-PA-aNb" id="oG9-kj-pLD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuC-yn-DnT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
