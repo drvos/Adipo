@@ -74,9 +74,9 @@
 				9CDD77E8264DB6A5000B1802 /* Controllers */,
 				9C28551526277E2000B3A2DD /* AppDelegate.swift */,
 				9C28551726277E2000B3A2DD /* SceneDelegate.swift */,
-				9C28551E26277E2100B3A2DD /* Assets.xcassets */,
-				9C28552026277E2100B3A2DD /* LaunchScreen.storyboard */,
 				9C28551B26277E2000B3A2DD /* Main.storyboard */,
+				9C28552026277E2100B3A2DD /* LaunchScreen.storyboard */,
+				9C28551E26277E2100B3A2DD /* Assets.xcassets */,
 				9C28552326277E2100B3A2DD /* Info.plist */,
 			);
 			path = Adipo;
