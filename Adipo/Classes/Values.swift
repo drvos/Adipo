@@ -12,6 +12,7 @@ let values = Values.shared
 class Values {
    
    struct myDefaults {
+      let age: Int = 50
       let sex: Sex = .female
       let weight: Int = 80
       let size: Int = 180
@@ -20,6 +21,11 @@ class Values {
    }
    let md = myDefaults()
    
+   var age: Int {
+      didSet {
+         logger.trace("Values: Age is set to \(self.age)")
+      }
+   }
    var sex: Sex {
       didSet {
          logger.trace("Values: Sex is set to \(self.sex.hashValue)")
@@ -52,6 +58,7 @@ class Values {
    }
 
    init() {
+      self.age = md.age
       self.sex = md.sex
       self.weight = md.weight
       self.size = md.size
