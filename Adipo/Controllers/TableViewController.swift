@@ -78,25 +78,6 @@ class TableViewController: UITableViewController {
       hüftChanged(hipSlider)
    }
 
-   // MARK: - Table view data source
-
-   override func numberOfSections(in tableView: UITableView) -> Int {
-      return 3
-   }
-
-   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      switch section {
-         case 0:  // Geschlecht
-            return 1
-         case 1:  // Body-Mass-Index
-            return 2
-         case 2:  // Taille-Hüft-Quotient
-            return 2
-         default:
-            return 0
-      }
-   }
-   
    // MARK: Interface Actions
    
    @IBAction func geschlechtChanged(_ sender: UISegmentedControl) {
