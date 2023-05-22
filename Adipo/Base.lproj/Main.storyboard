@@ -137,13 +137,23 @@
                                                     <constraint firstItem="ew5-lS-D5d" firstAttribute="top" secondItem="nb4-zT-Uxf" secondAttribute="top" constant="10" id="q53-gh-UNP"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grundumsatz" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCd-wd-0en">
+                                                <rect key="frame" x="8" y="8" width="398" height="34"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="QCd-wd-0en" firstAttribute="top" secondItem="FF3-Xn-s4t" secondAttribute="topMargin" id="Q5F-ll-HJT"/>
                                             <constraint firstItem="VIb-mq-YYC" firstAttribute="centerX" secondItem="FF3-Xn-s4t" secondAttribute="centerX" id="U4F-ak-QPU"/>
+                                            <constraint firstItem="QCd-wd-0en" firstAttribute="centerX" secondItem="VIb-mq-YYC" secondAttribute="centerX" id="X0d-2x-MW2"/>
                                             <constraint firstItem="nb4-zT-Uxf" firstAttribute="centerX" secondItem="FF3-Xn-s4t" secondAttribute="centerX" id="Xxd-Ky-Htr"/>
                                             <constraint firstItem="nb4-zT-Uxf" firstAttribute="top" secondItem="VIb-mq-YYC" secondAttribute="bottom" constant="50" id="mRH-Pn-4eM"/>
+                                            <constraint firstItem="VIb-mq-YYC" firstAttribute="top" secondItem="QCd-wd-0en" secondAttribute="bottom" constant="8" id="oOl-ce-ZYU"/>
                                             <constraint firstItem="VIb-mq-YYC" firstAttribute="top" secondItem="FF3-Xn-s4t" secondAttribute="top" constant="50" id="rMu-6n-Zm0"/>
+                                            <constraint firstItem="QCd-wd-0en" firstAttribute="leading" secondItem="FF3-Xn-s4t" secondAttribute="leadingMargin" id="tkI-lm-BP8"/>
                                         </constraints>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8D-HU-FTZ">
@@ -176,6 +186,7 @@
                         <outlet property="bmiImage" destination="PWL-m3-2dL" id="lMs-yS-9rW"/>
                         <outlet property="bmiValueLabel" destination="gph-a1-11M" id="Ark-6A-SCP"/>
                         <outlet property="bmiView" destination="VIb-mq-YYC" id="2b7-k2-JBA"/>
+                        <outlet property="mrLabel" destination="QCd-wd-0en" id="QLz-LL-sxS"/>
                         <outlet property="whrCategoryLabel" destination="wHM-Lb-m2Q" id="XT4-4S-3G7"/>
                         <outlet property="whrColorBar" destination="PtW-su-YLO" id="JbA-CX-w2V"/>
                         <outlet property="whrImage" destination="YdT-PD-0a9" id="NAb-5d-qVg"/>
