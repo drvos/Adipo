@@ -17,7 +17,6 @@ class ResultTableViewController: UITableViewController, Observer {
    
    @IBOutlet weak var mrLabel: UILabel!
    
-   //@IBOutlet weak var bmiView: UIView!
    @IBOutlet weak var bmiCategorieLabel: UILabel!
    @IBOutlet weak var bmiValueLabel: UILabel!
    @IBOutlet weak var bmiImage: UIImageView!
@@ -31,15 +30,16 @@ class ResultTableViewController: UITableViewController, Observer {
    override func viewDidLoad() {
       super.viewDidLoad()
       
+      values.attachObserver(observer: self)
+      
       mr = MR.init(values: values)
       bmi = BMI.init(values: values)
       whr = WHR.init(values: values)
-
       
-      setResults()
+      changeResults()
    }
    
-   internal func setResults() {
+   internal func changeResults() {
       mrLabel.text = mr!.text()
       
       bmiColorBar.backgroundColor = bmi!.color
@@ -56,8 +56,8 @@ class ResultTableViewController: UITableViewController, Observer {
    // MARK: - Observer
    
    func changedValues() {
-      logger.debug("Class: ResultTableViewController - Function changedValues")
-      self.setResults()
+      logger.debug("ResultTableViewController - Function changedValues")
+      self.changeResults()
    }
    
 }
