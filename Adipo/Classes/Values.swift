@@ -35,35 +35,35 @@ class Values {
    var sex: Sex {
       didSet {
          logger.trace("Values: Sex is set to \(self.sex.rawValue)")
-//         UserDefaults.standard.set(self.geschlecht, forKey: "geschlecht")
+         UserDefaults.standard.set(self.sex.rawValue, forKey: "sex")
          notifyObservers()
       }
    }
    var weight: Int {
       didSet {
          logger.trace("Values: Weight is set to \(self.weight)")
-//         UserDefaults.standard.set(self.gewicht, forKey: "gewicht")
+         UserDefaults.standard.set(self.weight, forKey: "weight")
          notifyObservers()
       }
    }
    var size: Int {
       didSet {
          logger.trace("Values: Size is set to \(self.size)")
-//         UserDefaults.standard.set(self.größe, forKey: "größe")
+         UserDefaults.standard.set(self.size, forKey: "size")
          notifyObservers()
       }
    }
    var waist: Int {
       didSet {
          logger.trace("Value: Waist is set to \(self.waist)")
-//         UserDefaults.standard.set(self.taillenumfang, forKey: "taillenumfang")
+         UserDefaults.standard.set(self.waist, forKey: "waist")
          notifyObservers()
       }
    }
    var hip: Int {
       didSet {
          logger.trace("Value: Hip is set to \(self.hip)")
-//         UserDefaults.standard.set(self.hüftumfang, forKey: "hüftumfang")
+         UserDefaults.standard.set(self.hip, forKey: "hip")
          notifyObservers()
       }
    }
@@ -76,7 +76,7 @@ class Values {
       self.waist = md.waist
       self.hip = md.hip
       
-//      self.loadUserDefaults()
+      self.loadUserDefaults()
    }
    
    static let shared: Values = { return Values() }()
@@ -86,37 +86,51 @@ class Values {
    }
    
    private func notifyObservers() {
+      logger.trace("Values - Function notifyObservers")
       for observer in observers {
+         logger.trace("Values - Call changedValues")
          observer.changedValues()
       }
    }
    
-//   internal func loadUserDefaults() {
-//      print(String("Load User Defaults"))
-//      if isKeyPresentInUserDefaults(key: "geschlecht") {
-//         self.geschlecht = UserDefaults.standard.string(forKey: "geschlecht")!
-//      } else { self.geschlecht = md.geschlecht }
-//
-//      if isKeyPresentInUserDefaults(key: "gewicht") {
-//         self.gewicht = UserDefaults.standard.integer(forKey: "gewicht")
-//      } else { self.gewicht = md.gewicht }
-//
-//      if isKeyPresentInUserDefaults(key: "größe") {
-//         self.größe = UserDefaults.standard.integer(forKey: "größe")
-//      } else { self.größe = md.größe }
-//
-//      if isKeyPresentInUserDefaults(key: "taillenumfang") {
-//         self.taillenumfang = UserDefaults.standard.integer(forKey: "taillenumfang")
-//      } else { self.taillenumfang = md.taillenumfang }
-//
-//      if isKeyPresentInUserDefaults(key: "hüftumfang") {
-//         self.hüftumfang = UserDefaults.standard.integer(forKey: "hüftumfang")
-//      } else { self.hüftumfang = md.hüftumfang }
-//      print("UserDefaults loaded")
-//   }
-//
-//   internal func isKeyPresentInUserDefaults(key: String) -> Bool {
-//       return UserDefaults.standard.object(forKey: key) != nil
-//   }
+   internal func loadUserDefaults() {
+      logger.info("Load user defaults")
+
+      if isKeyPresentInUserDefaults(key: "age") {
+         self.age = UserDefaults.standard.integer(forKey: "age")
+         logger.trace("Age: \(self.age)")
+      } else { self.age = md.age }
+      
+      if isKeyPresentInUserDefaults(key: "sex") {
+         self.sex = Sex(rawValue: UserDefaults.standard.integer(forKey: "sex"))!
+         logger.trace("Sex: \(self.sex.hashValue)")
+      } else { self.sex = md.sex }
+      
+      if isKeyPresentInUserDefaults(key: "weight") {
+         self.weight = UserDefaults.standard.integer(forKey: "weight")
+         logger.trace("Weight: \(self.weight)")
+      } else { self.weight = md.weight }
+
+      if isKeyPresentInUserDefaults(key: "size") {
+         self.size = UserDefaults.standard.integer(forKey: "size")
+         logger.trace("Size: \(self.size)")
+      } else { self.size = md.size }
+
+      if isKeyPresentInUserDefaults(key: "waist") {
+         self.waist = UserDefaults.standard.integer(forKey: "waist")
+         logger.trace("Waist: \(self.waist)")
+      } else { self.waist = md.waist }
+
+      if isKeyPresentInUserDefaults(key: "hip") {
+         self.hip = UserDefaults.standard.integer(forKey: "hip")
+         logger.trace("Hip: \(self.hip)")
+      } else { self.hip = md.hip }
+      
+      logger.info("User defaults loaded")
+   }
+
+   internal func isKeyPresentInUserDefaults(key: String) -> Bool {
+       return UserDefaults.standard.object(forKey: key) != nil
+   }
 }
 
