@@ -206,9 +206,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="PWL-m3-2dL" secondAttribute="bottom" constant="10" id="7Vn-7B-xB7"/>
                                                         <constraint firstItem="PWL-m3-2dL" firstAttribute="leading" secondItem="VIb-mq-YYC" secondAttribute="leading" constant="10" id="KCH-2U-Tub"/>
                                                         <constraint firstAttribute="trailing" secondItem="yCz-Kq-iML" secondAttribute="trailing" constant="10" id="Ndq-M4-cUR"/>
-                                                        <constraint firstAttribute="height" constant="115" id="NpE-3F-8ja"/>
                                                         <constraint firstItem="yCz-Kq-iML" firstAttribute="centerY" secondItem="VIb-mq-YYC" secondAttribute="centerY" id="TTU-ag-Sqy"/>
-                                                        <constraint firstAttribute="width" constant="300" id="Wb5-E1-Mrv"/>
                                                         <constraint firstAttribute="trailing" secondItem="gph-a1-11M" secondAttribute="trailing" constant="10" id="Zlg-rN-rNG"/>
                                                         <constraint firstItem="yJE-Bu-JTn" firstAttribute="top" secondItem="VIb-mq-YYC" secondAttribute="top" constant="10" id="eL4-be-w98"/>
                                                         <constraint firstItem="gph-a1-11M" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yJE-Bu-JTn" secondAttribute="trailing" constant="8" symbolic="YES" id="eMM-0E-jyq"/>
@@ -279,7 +277,6 @@
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="4Df-db-vb8"/>
                                                         <constraint firstItem="ew5-lS-D5d" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yWB-N4-mlG" secondAttribute="trailing" constant="8" symbolic="YES" id="9ob-u4-6Xn"/>
                                                         <constraint firstItem="yWB-N4-mlG" firstAttribute="leading" secondItem="nb4-zT-Uxf" secondAttribute="leading" constant="10" id="BDh-Um-DPA"/>
                                                         <constraint firstItem="wHM-Lb-m2Q" firstAttribute="leading" secondItem="YdT-PD-0a9" secondAttribute="trailing" constant="10" id="Erx-Yl-UQh"/>
@@ -288,7 +285,6 @@
                                                         <constraint firstAttribute="bottom" secondItem="YdT-PD-0a9" secondAttribute="bottom" constant="10" id="efR-Or-NKG"/>
                                                         <constraint firstItem="YdT-PD-0a9" firstAttribute="leading" secondItem="nb4-zT-Uxf" secondAttribute="leading" constant="10" id="mtG-sE-MHm"/>
                                                         <constraint firstAttribute="trailing" secondItem="wHM-Lb-m2Q" secondAttribute="trailing" constant="10" id="oqx-6f-Ws5"/>
-                                                        <constraint firstAttribute="height" constant="115" id="pO8-5T-B7D"/>
                                                         <constraint firstAttribute="trailing" secondItem="ew5-lS-D5d" secondAttribute="trailing" constant="10" id="pX4-AD-wBs"/>
                                                         <constraint firstItem="ew5-lS-D5d" firstAttribute="top" secondItem="nb4-zT-Uxf" secondAttribute="top" constant="10" id="q53-gh-UNP"/>
                                                     </constraints>
