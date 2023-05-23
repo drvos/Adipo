@@ -19,6 +19,8 @@
 		9CE17DE92A1AB569001FE2B6 /* MR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE17DE82A1AB569001FE2B6 /* MR.swift */; };
 		9CE17DEB2A1AB9DD001FE2B6 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE17DEA2A1AB9DD001FE2B6 /* Sex.swift */; };
 		9CE17DED2A1ABA79001FE2B6 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE17DEC2A1ABA79001FE2B6 /* App.swift */; };
+		9CE17DF22A1D3388001FE2B6 /* ResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE17DF12A1D3388001FE2B6 /* ResultTableViewController.swift */; };
+		9CE17DF42A1D3397001FE2B6 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE17DF32A1D3397001FE2B6 /* ResultViewController.swift */; };
 		9CE359CC2628C1420027622B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE359CB2628C1420027622B /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		9CE17DEA2A1AB9DD001FE2B6 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
 		9CE17DEC2A1ABA79001FE2B6 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		9CE17DF02A1C0AD4001FE2B6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9CE17DF12A1D3388001FE2B6 /* ResultTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewController.swift; sourceTree = "<group>"; };
+		9CE17DF32A1D3397001FE2B6 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		9CE359CB2628C1420027622B /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +93,8 @@
 			children = (
 				9C28551926277E2000B3A2DD /* ViewController.swift */,
 				9CE359CB2628C1420027622B /* TableViewController.swift */,
+				9CE17DF32A1D3397001FE2B6 /* ResultViewController.swift */,
+				9CE17DF12A1D3388001FE2B6 /* ResultTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,7 +192,9 @@
 				9C28553626278AF300B3A2DD /* WHR.swift in Sources */,
 				9CE359CC2628C1420027622B /* TableViewController.swift in Sources */,
 				9C28552D26277F5F00B3A2DD /* BMI.swift in Sources */,
+				9CE17DF22A1D3388001FE2B6 /* ResultTableViewController.swift in Sources */,
 				9CE17DEB2A1AB9DD001FE2B6 /* Sex.swift in Sources */,
+				9CE17DF42A1D3397001FE2B6 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

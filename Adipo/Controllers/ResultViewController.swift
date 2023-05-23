@@ -1,13 +1,13 @@
 //
-//  ViewController.swift
+//  ResultViewController.swift
 //  Adipo
 //
-//  Created by Volker Schering on 14.04.21.
+//  Created by Volker Schering on 23.05.23.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ResultViewController: UIViewController {
    
    let app = App.shared
    
@@ -17,4 +17,3 @@ class ViewController: UIViewController {
       self.title = app.Name
    }
 }
-
