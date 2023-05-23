@@ -63,14 +63,7 @@ class TableViewController: UITableViewController {
    }
    
    @IBAction func sexChanged(_ sender: UISegmentedControl) {
-      switch (sender.selectedSegmentIndex) {
-         case 0:
-            values.sex = .female
-         case 1:
-            values.sex = .male
-         default:
-            values.sex = .female
-      }
+      values.sex = Sex(rawValue: sender.selectedSegmentIndex)!
    }
    
    @IBAction func weightChanged(_ sender: UISlider) {
