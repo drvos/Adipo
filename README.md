@@ -12,7 +12,7 @@ Folgende Werte werden berechnet:
 
 - Grundumsatz
 - Body-Mass-Index
-- Taille-Hüft-Quotient
+- Hüft-Bauch-Umfang
 
 ## Autor
 
