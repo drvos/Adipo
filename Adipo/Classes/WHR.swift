@@ -11,29 +11,24 @@ import Foundation
 
 internal class WHR { // waist-hip ratio
    
-   struct Gender {
-      let short: String
-      let name: String
-   }
-   
    private var _Categories: [String] =
       ["","","","Normalgewicht","Übergewicht","Adipositas"]
    private var _Colors: [UIColor] =
       [UIColor.clear, UIColor.red, UIColor.orange, UIColor.green, UIColor.orange, UIColor.red]
    
-   var sex: String {
+   var sex: Sex {
       didSet {
-         print(String(format:"WHR.sex has been set: %@", self.sex))
+         print(String(format:"WHR.sex has been set: %@", self.sex.rawValue))
       }
    }
-   var hipSize: Int {
+   var hip: Int {
       didSet {
-         print(String(format:"WHR.hipSize has been set: %d", self.hipSize))
+         print(String(format:"WHR.hip has been set: %d", self.hip))
       }
    }
-   var waistSize: Int {
+   var waist: Int {
       didSet {
-         print(String(format:"WHR.waistSize has been set: %d", self.waistSize))
+         print(String(format:"WHR.waist has been set: %d", self.waist))
       }
    }
    
@@ -44,21 +39,21 @@ internal class WHR { // waist-hip ratio
    
    // MARK: Initializer
    
-   internal init() {
-      self.hipSize = 50
-      self.waistSize = 40
-      self.sex = "weiblich"
+   internal init(values: Values) {
+      self.hip = values.hip
+      self.waist = values.waist
+      self.sex = values.sex
    }
    
    // MARK: Internal Functions
    
    private func _whr() -> Double {
-      return (Double(self.waistSize) / Double(self.hipSize))
+      return (Double(self.waist) / Double(self.hip))
    }
    
-   private func _generateIndex(sex: String) -> Int {
-      switch sex.prefix(1) {
-         case "m":
+   private func _generateIndex(sex: Sex) -> Int {
+      switch sex {
+         case .male:
             if (self.value < 0.9) {
                return 3
             } else if (self.value >= 0.9 && self.value < 1) {
@@ -66,7 +61,7 @@ internal class WHR { // waist-hip ratio
             } else if (self.value >= 1.0) {
                return 5
             }
-         case "w":
+         case .female:
             if (self.value < 0.8) {
                return 3
             } else if (self.value >= 0.8 && self.value < 0.85) {
@@ -74,8 +69,6 @@ internal class WHR { // waist-hip ratio
             } else if (self.value >= 0.85) {
                return 5
             }
-         default:
-            return 0
       }
       return 0
    }

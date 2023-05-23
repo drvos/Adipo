@@ -35,9 +35,9 @@ class BMI {
    
    // MARK: Initializer
    
-   internal init() {
-      self.weight = 100
-      self.size = 188
+   internal init(values: Values) {
+      self.weight = values.weight
+      self.size = values.size
    }
    
    // MARK: Internal Functions

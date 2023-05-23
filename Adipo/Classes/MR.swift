@@ -32,11 +32,11 @@ class MR {
    
    private let _unit: String
    
-   init() {
-      self.sex = .female
-      self.age = 50
-      self.size = 170
-      self.weight = 100
+   init(values: Values) {
+      self.sex = values.sex
+      self.age = values.age
+      self.size = values.size
+      self.weight = values.weight
       
       self._unit = "kcal/24h"
    }
@@ -61,7 +61,7 @@ class MR {
    }
    
    public func text() -> String {
-      return String(format: "Dein berechneter täglicher Grundumsatz ist %d %@", self.metabolicRate, self._unit)
+      return "\(self.metabolicRate)"
    }
 }
 
