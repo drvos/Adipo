@@ -599,41 +599,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyE-sP-Kg6">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                                <items>
-                                    <navigationItem style="editor" id="Z3n-66-XPI">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.down" catalog="system" id="S9m-ZM-Ir9">
-                                            <connections>
-                                                <action selector="aboutCloseTapped:" destination="yHz-5W-Ow4" id="CJ0-7y-odI"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="oyQ-a3-aXf">
-                                            <connections>
-                                                <action selector="aboutShareTapped:" destination="yHz-5W-Ow4" id="fCs-Zv-hpE"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                                <navigationBarAppearance key="standardAppearance" backgroundEffect="regular"/>
-                                <navigationBarAppearance key="compactAppearance"/>
-                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ryX-vF-MAN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="NdQ-lz-1tC" firstAttribute="centerX" secondItem="0FH-Ru-MBG" secondAttribute="centerX" id="2G5-DA-JfF"/>
                             <constraint firstItem="Bbk-Zw-Bz2" firstAttribute="top" secondItem="kim-Dm-ONi" secondAttribute="top" constant="294" id="56I-cI-DLY"/>
-                            <constraint firstItem="qyE-sP-Kg6" firstAttribute="top" secondItem="ryX-vF-MAN" secondAttribute="top" id="6Wk-RM-I08"/>
                             <constraint firstItem="Bbk-Zw-Bz2" firstAttribute="leading" secondItem="kim-Dm-ONi" secondAttribute="leading" id="CEy-sn-0lK"/>
-                            <constraint firstItem="qyE-sP-Kg6" firstAttribute="trailing" secondItem="Bbk-Zw-Bz2" secondAttribute="trailing" id="EuX-Yx-25V"/>
                             <constraint firstItem="0FH-Ru-MBG" firstAttribute="centerX" secondItem="kim-Dm-ONi" secondAttribute="centerX" id="KPg-Ns-BEM"/>
                             <constraint firstItem="NdQ-lz-1tC" firstAttribute="top" secondItem="jje-rX-KxL" secondAttribute="bottom" constant="48" id="Pye-KR-dcL"/>
                             <constraint firstItem="Bbk-Zw-Bz2" firstAttribute="top" secondItem="NdQ-lz-1tC" secondAttribute="bottom" constant="24" id="RTF-nB-UWM"/>
+                            <constraint firstItem="Bbk-Zw-Bz2" firstAttribute="centerX" secondItem="jje-rX-KxL" secondAttribute="centerX" id="Y0n-dp-lKE"/>
                             <constraint firstItem="0FH-Ru-MBG" firstAttribute="top" secondItem="kim-Dm-ONi" secondAttribute="topMargin" constant="208" id="a4K-Av-lAd"/>
-                            <constraint firstAttribute="trailing" secondItem="qyE-sP-Kg6" secondAttribute="trailing" id="dWM-NX-cdg"/>
-                            <constraint firstItem="qyE-sP-Kg6" firstAttribute="leading" secondItem="Bbk-Zw-Bz2" secondAttribute="leading" id="mJO-mg-0tX"/>
-                            <constraint firstItem="jje-rX-KxL" firstAttribute="centerX" secondItem="qyE-sP-Kg6" secondAttribute="centerX" id="vGE-Ab-06r"/>
+                            <constraint firstItem="Bbk-Zw-Bz2" firstAttribute="centerX" secondItem="NdQ-lz-1tC" secondAttribute="centerX" id="fcL-ji-8Sz"/>
                             <constraint firstItem="Bbk-Zw-Bz2" firstAttribute="bottom" secondItem="ryX-vF-MAN" secondAttribute="bottom" id="wVx-VJ-bcW"/>
                             <constraint firstItem="Bbk-Zw-Bz2" firstAttribute="top" secondItem="jje-rX-KxL" secondAttribute="bottom" constant="94" id="xpv-XB-djn"/>
                         </constraints>
@@ -757,7 +735,6 @@
     </scenes>
     <resources>
         <image name="adipo_03" width="754" height="1256"/>
-        <image name="chevron.down" catalog="system" width="128" height="70"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

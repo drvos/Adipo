@@ -29,19 +29,4 @@ class AboutViewController: UIViewController {
       appVersionLabel.text = String(format: "Version %@ (%@)", app.VersionNumber, app.BuildNumber)
    }
    
-   // MARK: - IB Actions
-   
-   @IBAction func aboutCloseTapped(_ sender: UIBarButtonItem) {
-      self.dismiss(animated: true)
-   }
-   
-   @IBAction func aboutShareTapped(_ sender: UIBarButtonItem) {
-      logger.debug("Function aboutShareTapped")
-      let text = String(format: "Hallo! Hier ist ein Link zum Herunterladen der %@ App", app.Name)
-      let url = NSURL(string: app.AppStoreUrl)
-      let share = [text, url!] as [Any]
-      app.openShareSheet(sender: self, share: share)
-   }
-   
-
 }
