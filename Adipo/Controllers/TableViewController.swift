@@ -58,30 +58,36 @@ class TableViewController: UITableViewController {
    // MARK: Interface Actions
    
    @IBAction func ageChanged(_ sender: UISlider) {
+      Haptic.selection.generate(prepareForReuse: true)
       values.age = Int(ageSlider.value.rounded())
       ageValueLabel.text = String(format: "%d Jahre", values.age)
    }
    
    @IBAction func sexChanged(_ sender: UISegmentedControl) {
+      Haptic.selection.generate(prepareForReuse: true)
       values.sex = Sex(rawValue: sender.selectedSegmentIndex)!
    }
    
    @IBAction func weightChanged(_ sender: UISlider) {
+      Haptic.selection.generate(prepareForReuse: true)
       values.weight = Int(weightSlider.value.rounded())
       weightValueLabel.text = String(format: "%d kg", values.weight)
    }
    
    @IBAction func sizeChanged(_ sender: UISlider) {
+      Haptic.selection.generate(prepareForReuse: true)
       values.size = Int(sizeSlider.value.rounded())
       sizeValueLabel.text = String(format: "%d cm", values.size)
    }
    
    @IBAction func waistChanged(_ sender: UISlider) {
+      Haptic.selection.generate(prepareForReuse: true)
       values.waist = Int(waistSlider.value.rounded())
       waistValueLabel.text = String(format: "%d cm", values.waist)
    }
    
    @IBAction func hipChanged(_ sender: UISlider) {
+      Haptic.selection.generate(prepareForReuse: true)
       values.hip = Int(hipSlider.value.rounded())
       hipValueLabel.text = String(format: "%d cm", values.hip)
    }

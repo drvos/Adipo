@@ -14,6 +14,11 @@ Folgende Werte werden berechnet:
 - Body-Mass-Index
 - Hüft-Bauch-Umfang
 
+## Enthält 
+
+Den [HapticGenerator](https://github.com/KaneCheshire/HapticGenerator) 
+für haptisches Feedback von KaneCheshire.
+
 ## Autor
 
 Volker Schering, <a src="mailto:mail@volker-schering.de">mail@volker-schering.de</a>
