@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, Observer {
    
+   let app = App.shared
    let values = Values.shared
    
    let mr = MR.init()
@@ -31,6 +32,9 @@ class ViewController: UIViewController, Observer {
    
    override func viewDidLoad() {
       super.viewDidLoad()
+      
+      self.title = app.Name
+      
       values.attachObserver(observer: self)
       
       bmiView.layer.cornerRadius = 10.0
