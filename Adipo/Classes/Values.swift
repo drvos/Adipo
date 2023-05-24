@@ -90,7 +90,7 @@ class Values {
          logger.error("Error while reading 'Sex' from HealthKit: \(error)")
       }
       self._readWeightFromHealthKit()
-      self._readHeightFromHealthKit()
+      self._readSizeFromHealthKit()
    }
    
    // MARK: - Observer functions
@@ -145,14 +145,15 @@ class Values {
       self.healthStore.execute(query)
    }
    
-   internal func _readHeightFromHealthKit() {
+   internal func _readSizeFromHealthKit() {
       logger.debug("TableViewController - Function readHeightFromHealthKit")
       let heightType = HKSampleType.quantityType(forIdentifier: .height)!
-      let query = HKSampleQuery(sampleType: heightType, predicate: nil, limit: 1, sortDescriptors: nil) { (query, results, error) in
+      let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: false)
+      let query = HKSampleQuery(sampleType: heightType, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor]) { (query, results, error) in
             if let result = results?.last as? HKQuantitySample {
-               let height = result.quantity.doubleValue(for: HKUnit(from: "cm"))
-               logger.trace("readFromHealthKit - Height: \(height)")
-               self.weight = Int(height.rounded())
+               let size = result.quantity.doubleValue(for: HKUnit(from: "cm"))
+               logger.trace("readFromHealthKit - Size: \(size)")
+               self.size = Int(size.rounded())
             }
       }
       self.healthStore.execute(query)
