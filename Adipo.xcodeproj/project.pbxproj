@@ -15,6 +15,7 @@
 		9C28552226277E2100B3A2DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C28552026277E2100B3A2DD /* LaunchScreen.storyboard */; };
 		9C28552D26277F5F00B3A2DD /* BMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C28552C26277F5F00B3A2DD /* BMI.swift */; };
 		9C28553626278AF300B3A2DD /* WHR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C28553526278AF300B3A2DD /* WHR.swift */; };
+		9C8248732A1E797300970D7D /* HealthKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8248722A1E797300970D7D /* HealthKit.swift */; };
 		9CDD77EE264DB7D2000B1802 /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD77ED264DB7D2000B1802 /* Values.swift */; };
 		9CE17DE92A1AB569001FE2B6 /* MR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE17DE82A1AB569001FE2B6 /* MR.swift */; };
 		9CE17DEB2A1AB9DD001FE2B6 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE17DEA2A1AB9DD001FE2B6 /* Sex.swift */; };
@@ -40,6 +41,9 @@
 		9C28553526278AF300B3A2DD /* WHR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WHR.swift; sourceTree = "<group>"; };
 		9C8248672A1DD14300970D7D /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		9C8248682A1DD31D00970D7D /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		9C82486A2A1E6A1F00970D7D /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		9C82486F2A1E6A4900970D7D /* Adipo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Adipo.entitlements; sourceTree = "<group>"; };
+		9C8248722A1E797300970D7D /* HealthKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKit.swift; sourceTree = "<group>"; };
 		9CDD77ED264DB7D2000B1802 /* Values.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
 		9CE17DE82A1AB569001FE2B6 /* MR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MR.swift; sourceTree = "<group>"; };
 		9CE17DEA2A1AB9DD001FE2B6 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 				9C8248682A1DD31D00970D7D /* TODO.md */,
 				9C28551426277E2000B3A2DD /* Adipo */,
 				9C28551326277E2000B3A2DD /* Products */,
+				9C8248692A1E6A1E00970D7D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +91,7 @@
 		9C28551426277E2000B3A2DD /* Adipo */ = {
 			isa = PBXGroup;
 			children = (
+				9C82486F2A1E6A4900970D7D /* Adipo.entitlements */,
 				9CDD77EA264DB6AF000B1802 /* Classes */,
 				9CDD77E8264DB6A5000B1802 /* Controllers */,
 				9C28551526277E2000B3A2DD /* AppDelegate.swift */,
@@ -96,6 +102,14 @@
 				9C28552326277E2100B3A2DD /* Info.plist */,
 			);
 			path = Adipo;
+			sourceTree = "<group>";
+		};
+		9C8248692A1E6A1E00970D7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C82486A2A1E6A1F00970D7D /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9CDD77E8264DB6A5000B1802 /* Controllers */ = {
@@ -121,6 +135,7 @@
 				9C28552C26277F5F00B3A2DD /* BMI.swift */,
 				9C28553526278AF300B3A2DD /* WHR.swift */,
 				9CE17DF52A1D4800001FE2B6 /* HapticGenerator.swift */,
+				9C8248722A1E797300970D7D /* HealthKit.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -204,6 +219,7 @@
 				9CDD77EE264DB7D2000B1802 /* Values.swift in Sources */,
 				9C28551826277E2000B3A2DD /* SceneDelegate.swift in Sources */,
 				9C28553626278AF300B3A2DD /* WHR.swift in Sources */,
+				9C8248732A1E797300970D7D /* HealthKit.swift in Sources */,
 				9CE359CC2628C1420027622B /* TableViewController.swift in Sources */,
 				9C28552D26277F5F00B3A2DD /* BMI.swift in Sources */,
 				9CE17DF22A1D3388001FE2B6 /* ResultTableViewController.swift in Sources */,
@@ -357,6 +373,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Adipo/Adipo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 244ZF284NG;
@@ -380,6 +397,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Adipo/Adipo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 244ZF284NG;

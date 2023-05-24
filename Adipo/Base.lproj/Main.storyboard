@@ -657,22 +657,55 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Einstellungen" id="dg7-vG-j2Y">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0vZ-Rp-8fw">
+                                        <rect key="frame" x="0.0" y="171.5" width="414" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0vZ-Rp-8fw" id="b6B-Dl-kBg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDE-6k-rb4">
+                                                    <rect key="frame" x="20" y="5" width="394" height="35"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="HealthKit authorisieren">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                    </state>
+                                                    <buttonConfiguration key="configuration" style="plain" title="HealthKit authorisieren">
+                                                        <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="healthkitAuthorizeTapped:" destination="1L6-YN-ZFH" eventType="touchUpInside" id="Jbu-PW-X5R"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="QDE-6k-rb4" secondAttribute="bottom" constant="5" id="GUN-BN-CuE"/>
+                                                <constraint firstItem="QDE-6k-rb4" firstAttribute="leading" secondItem="b6B-Dl-kBg" secondAttribute="leading" constant="20" id="LWJ-6g-XXC"/>
+                                                <constraint firstAttribute="trailing" secondItem="QDE-6k-rb4" secondAttribute="trailing" id="NhN-hr-IN1"/>
+                                                <constraint firstItem="QDE-6k-rb4" firstAttribute="top" secondItem="b6B-Dl-kBg" secondAttribute="top" constant="5" id="aiL-eJ-epn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection id="2N2-2u-yP7">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Luk-q3-9lg">
-                                        <rect key="frame" x="0.0" y="171.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="294.5" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Luk-q3-9lg" id="54q-e8-d75">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah0-ge-wVu">
-                                                    <rect key="frame" x="20" y="5" width="394" height="33.5"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah0-ge-wVu">
+                                                    <rect key="frame" x="20" y="5" width="394" height="35"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" title="Im Appstore bewerten">
-                                                        <color key="titleColor" systemColor="labelColor"/>
-                                                    </state>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Im Appstore bewerten">
+                                                        <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                                    </buttonConfiguration>
                                                     <connections>
                                                         <action selector="appStoreRatingTapped:" destination="1L6-YN-ZFH" eventType="touchUpInside" id="l37-ys-V4X"/>
                                                     </connections>
@@ -687,19 +720,19 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BjV-1M-8TP">
-                                        <rect key="frame" x="0.0" y="215" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="339.5" width="414" height="45.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BjV-1M-8TP" id="PcS-t9-vhQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="45.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rZ-Fb-duV">
-                                                    <rect key="frame" x="20" y="5" width="394" height="33.5"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rZ-Fb-duV">
+                                                    <rect key="frame" x="20" y="5" width="394" height="35.5"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" title="Mit Freunden teilen">
-                                                        <color key="titleColor" systemColor="labelColor"/>
-                                                    </state>
+                                                    <state key="normal" title="Mit Freunden teilen"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Mit Freunden teilen">
+                                                        <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                                    </buttonConfiguration>
                                                     <connections>
                                                         <action selector="shareButtonTapped:" destination="1L6-YN-ZFH" eventType="touchUpInside" id="a5d-pX-E0y"/>
                                                     </connections>

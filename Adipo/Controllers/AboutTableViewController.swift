@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HealthKit
 
 class AboutTableViewController: UITableViewController {
    
@@ -14,6 +15,7 @@ class AboutTableViewController: UITableViewController {
    @IBOutlet weak var shareButton: UIButton!
    
    let app = App.shared
+   let store = HKHealthStore()
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -28,6 +30,7 @@ class AboutTableViewController: UITableViewController {
       logger.debug("Function appStoreRatingTapped")
       app.openAppStoreForRating()
    }
+   
    @IBAction func shareButtonTapped(_ sender: UIButton) {
       logger.debug("Function shareButtonTapped")
       let text = String(format: "Hallo! Hier ist ein Link zum Herunterladen der %@ App", app.Name)
@@ -36,4 +39,20 @@ class AboutTableViewController: UITableViewController {
       app.openShareSheet(sender: self, share: share)
    }
    
+   @IBAction func healthkitAuthorizeTapped(_ sender: UIButton) {
+      HealthKit.authorizeHealthKit { (authorized, error) in
+         guard authorized else {
+            let baseMessage = "HealthKit Authorization Failed"
+            if let error = error {
+               print("\(baseMessage). Reason: \(error.localizedDescription)")
+            } else {
+               print(baseMessage)
+            }
+            return
+         }
+         print("HealthKit Successfully Authorized.")
+      }
+      self.dismiss(animated: true)
+   }
+
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HealthKit
 
 class TableViewController: UITableViewController, Observer {
    
@@ -50,7 +51,7 @@ class TableViewController: UITableViewController, Observer {
       
       hipSlider.minimumValue = 50
       hipSlider.maximumValue = 150
-      
+
       self.changedValues()
    }
    
@@ -60,6 +61,8 @@ class TableViewController: UITableViewController, Observer {
       logger.debug("TableViewController - Function changedValues")
       ageSlider.value = Float(values.age)
       ageValueLabel.text = String(format: "%d Jahre", values.age)
+      
+      sexSegmentControl.selectedSegmentIndex = values.sex.rawValue
       
       weightSlider.value = Float(values.weight)
       weightValueLabel.text = String(format: "%d kg", values.weight)
