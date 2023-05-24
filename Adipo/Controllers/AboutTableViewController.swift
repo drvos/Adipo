@@ -15,13 +15,12 @@ class AboutTableViewController: UITableViewController {
    @IBOutlet weak var shareButton: UIButton!
    
    let app = App.shared
-   let store = HKHealthStore()
+   let values = Values.shared
    
    override func viewDidLoad() {
       super.viewDidLoad()
       
       appDeveloperLabel.text = String(format: "%@, 2023", app.Developer)
-      
    }
    
    // MARK: - IBActions
@@ -42,16 +41,17 @@ class AboutTableViewController: UITableViewController {
    @IBAction func healthkitAuthorizeTapped(_ sender: UIButton) {
       HealthKit.authorizeHealthKit { (authorized, error) in
          guard authorized else {
-            let baseMessage = "HealthKit Authorization Failed"
+            let msg = "HealthKit Authorization Failed"
             if let error = error {
-               print("\(baseMessage). Reason: \(error.localizedDescription)")
+               logger.error("\(msg) Reason: \(error.localizedDescription)")
             } else {
-               print(baseMessage)
+               print(msg)
             }
             return
          }
-         print("HealthKit Successfully Authorized.")
+         logger.info("HealthKit Successfully Authorized.")
       }
+      values.loadHealthKitData()
       self.dismiss(animated: true)
    }
 

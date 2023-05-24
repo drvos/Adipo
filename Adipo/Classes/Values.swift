@@ -1,5 +1,5 @@
 //
-//  Einstellungen.swift
+//  Values.swift
 //  Adipo
 //
 //  Created by Volker Schering on 20.04.21.
@@ -14,8 +14,9 @@ protocol Observer {
 }
 
 class Values {
-   
+
    private var observers: [Observer] = []
+   private let healthStore = HKHealthStore()
    
    struct myDefaults {
       let age: Int = 30
@@ -30,37 +31,37 @@ class Values {
    var age: Int {
       didSet {
          logger.trace("Values: Age is set to \(self.age)")
-         notifyObservers()
+         _notifyObservers()
       }
    }
    var sex: Sex {
       didSet {
          logger.trace("Values: Sex is set to \(self.sex.rawValue)")
-         notifyObservers()
+         _notifyObservers()
       }
    }
    var weight: Int {
       didSet {
          logger.trace("Values: Weight is set to \(self.weight)")
-         notifyObservers()
+         _notifyObservers()
       }
    }
    var size: Int {
       didSet {
          logger.trace("Values: Size is set to \(self.size)")
-         notifyObservers()
+         _notifyObservers()
       }
    }
    var waist: Int {
       didSet {
          logger.trace("Value: Waist is set to \(self.waist)")
-         notifyObservers()
+         _notifyObservers()
       }
    }
    var hip: Int {
       didSet {
          logger.trace("Value: Hip is set to \(self.hip)")
-         notifyObservers()
+         _notifyObservers()
       }
    }
 
@@ -72,16 +73,33 @@ class Values {
       self.waist = md.waist
       self.hip = md.hip
       
-      _loadHealthKitData()
+      self.loadHealthKitData()
    }
    
    static let shared: Values = { return Values() }()
+   
+   func loadHealthKitData() {
+      do {
+         self.age = try self._readAgeFromHealthKit()
+      } catch let error {
+         logger.error("Error while reading 'Age' from HealthKit: \(error)")
+      }
+      do {
+         self.sex = Sex(rawValue: try self._readSexFromHealthKit().rawValue - 1)!
+      } catch let error {
+         logger.error("Error while reading 'Sex' from HealthKit: \(error)")
+      }
+      self._readWeightFromHealthKit()
+      self._readHeightFromHealthKit()
+   }
+   
+   // MARK: - Observer functions
    
    func attachObserver(observer: Observer) {
       observers.append(observer)
    }
    
-   private func notifyObservers() {
+   internal func _notifyObservers() {
       logger.trace("Values - Function notifyObservers")
       for observer in observers {
          logger.trace("Values - Call changedValues")
@@ -89,44 +107,55 @@ class Values {
       }
    }
    
-   internal func _loadHealthKitData() {
-      do {
-         let HKData = try self._readFromHealthKit()
-         logger.trace("HealthKit - Age: \(HKData.age)")
-         logger.trace("HealthKit - Sex: \(HKData.sex.rawValue)")
-         
-         self.age = HKData.age
-         self.sex = Sex(rawValue: HKData.sex.rawValue - 1)!
-         
-      } catch let error {
-         logger.error("Error while reading from HealthKit: \(error)")
-      }
-   }
+   // MARK: - Read from HealthKit
    
-   internal func _readFromHealthKit() throws -> (age: Int, sex: HKBiologicalSex) {
-      logger.debug("TableViewController - Function readFromHealthKit")
-      let store = HKHealthStore()
+   internal func _readAgeFromHealthKit() throws -> Int {
+      logger.debug("TableViewController - Function readAgeFromHealthKit")
       do {
-
-         // 1. This method throws an error if these data are not available.
-         let birthday = try store.dateOfBirthComponents()
-         let biologicalSex = try store.biologicalSex()
-          
+         let birthday = try healthStore.dateOfBirthComponents()
          logger.trace("readFromHealthKit - Birthday: \(birthday)")
-         logger.trace("readFromHealthKit - Sex: \(biologicalSex)")
          
-         // 2. Use Calendar to calculate age.
+         // Use Calendar to calculate age.
          let cal = Calendar.current
          let dob = cal.date(from: birthday)!
-         let age = (cal.dateComponents([.month], from: dob, to: Date()).month! / 12)
-         
-         // 3. Unwrap the wrappers to get the underlying enum values.
-         let sex = biologicalSex.biologicalSex
-   
-         return (age, sex)
+         return (cal.dateComponents([.month], from: dob, to: Date()).month! / 12)
       }
-
    }
    
+   internal func _readSexFromHealthKit() throws -> HKBiologicalSex {
+      logger.debug("TableViewController - Function readSexFromHealthKit")
+      do {
+         let biologicalSex = try healthStore.biologicalSex()
+         logger.trace("readFromHealthKit - Sex: \(biologicalSex)")
+         return biologicalSex.biologicalSex
+      }
+   }
+   
+   internal func _readWeightFromHealthKit() {
+      logger.debug("TableViewController - Function readWeightFromHealthKit")
+      let bodyMassType = HKSampleType.quantityType(forIdentifier: .bodyMass)!
+      let sortDescriptor = NSSortDescriptor(key:HKSampleSortIdentifierStartDate, ascending: false)
+      let query = HKSampleQuery(sampleType: bodyMassType, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor]) { (query, results, error) in
+         if let result = results?.last as? HKQuantitySample {
+               let bodyMass = result.quantity.doubleValue(for: HKUnit(from: "kg"))
+               logger.trace("readFromHealthKit - Weight: \(bodyMass)")
+               self.weight = Int(bodyMass.rounded())
+            }
+      }
+      self.healthStore.execute(query)
+   }
+   
+   internal func _readHeightFromHealthKit() {
+      logger.debug("TableViewController - Function readHeightFromHealthKit")
+      let heightType = HKSampleType.quantityType(forIdentifier: .height)!
+      let query = HKSampleQuery(sampleType: heightType, predicate: nil, limit: 1, sortDescriptors: nil) { (query, results, error) in
+            if let result = results?.last as? HKQuantitySample {
+               let height = result.quantity.doubleValue(for: HKUnit(from: "cm"))
+               logger.trace("readFromHealthKit - Height: \(height)")
+               self.weight = Int(height.rounded())
+            }
+      }
+      self.healthStore.execute(query)
+   }
 }
 

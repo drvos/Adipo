@@ -26,6 +26,7 @@ class HealthKit {
      guard
          let dateOfBirth = HKObjectType.characteristicType(forIdentifier: .dateOfBirth),
          let sex = HKObjectType.characteristicType(forIdentifier: .biologicalSex),
+         let weight = HKObjectType.quantityType(forIdentifier: .bodyMass),
          let height = HKObjectType.quantityType(forIdentifier: .height)
      else {
          completion(false, HealthkitError.dataTypeNotAvailable)
@@ -33,13 +34,12 @@ class HealthKit {
      }
      
      // 3. Prepare a list of types you want HealthKit to read and write
-     let healthKitTypesToRead: Set<HKObjectType> = [dateOfBirth, sex, height]
+     let healthKitTypesToRead: Set<HKObjectType> = [dateOfBirth, sex, weight, height]
      let healthKitTypesToWrite: Set<HKSampleType> = []
      
      // 4. Request Authorization
-     HKHealthStore().requestAuthorization(toShare: healthKitTypesToWrite,
-                                          read: healthKitTypesToRead) { (success, error) in
-       completion(success, error)
+     HKHealthStore().requestAuthorization(toShare: healthKitTypesToWrite, read: healthKitTypesToRead) {
+        (success, error) in completion(success, error)
      }
   }
 }

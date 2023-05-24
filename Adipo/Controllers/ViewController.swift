@@ -10,11 +10,12 @@ import UIKit
 class ViewController: UIViewController {
    
    let app = App.shared
-
+   
    override func viewDidLoad() {
       super.viewDidLoad()
       
       self.title = app.Name
+
    }
 }
 
