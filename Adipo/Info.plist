@@ -26,6 +26,8 @@
 	<true/>
 	<key>NSHealthShareUsageDescription</key>
 	<string>The requested body values are required as default values for the calculation in the Adipo App.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>The requested body values are required as default values for the calculation in the Adipo App.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
