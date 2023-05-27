@@ -38,7 +38,7 @@ class MR {
       self.size = values.size
       self.weight = values.weight
       
-      self._unit = "kcal/24h"
+      self._unit = "kcal"
    }
    
    var metabolicRate: Int {
@@ -61,7 +61,7 @@ class MR {
    }
    
    public func text() -> String {
-      return "\(self.metabolicRate)"
+      return "\(self.metabolicRate) \(self._unit)"
    }
 }
 
